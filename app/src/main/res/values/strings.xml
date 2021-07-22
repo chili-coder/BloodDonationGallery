@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">Blood Donation Gallery</string>
+
+    <string name="wc">Welcome Our SignUp Page</string>
+    <string name="choiceone">Please Choose One?</string>
+    <string name="become_a_donner">Be Come A Donner</string>
+    <string name="Recipient">Recipient Account</string>
+    <string name="ihaveaccout">All ready Registered?</string>
+    <string name="signin">Sign In</string>
+    <string name="signUp">Sign Up</string>
+    <string name="createAccount">I have no account</string>
+    <string name="email">Email</string>
+    <string name="iamarecipient">I AM A Recipient</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="usercreact">User Correct Email and Password </string>
+
+
+    ///signup
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="gender">Gender</string>
+    <string name="bloodgroup">Blood Group</string>
+    <string name="city">City</string>
+    <string name="useId">User ID</string>
+    <string name="age">Age</string>
+    <string name="Address">Address</string>
+    <string name="helperText">Required*</string>
+    <string name="donner_regi_btn">Register</string>
+
+    //blood group array
+    <string-array name="blood_group">
+        <item>Select Blood Group</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+
+
 </resources>
