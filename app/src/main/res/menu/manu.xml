@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+    android:id="@+id/home"
+    android:icon="@drawable/ic_home"
+    android:title="Home"/>
+
+
+    <item
+        android:id="@+id/callNow"
+        android:icon="@drawable/ic_call"
+        android:title="Call Now"/>
+
+    <item
+        android:id="@+id/sendemail"
+        android:icon="@drawable/ic_email"
+        android:title="Send Email"/>
+
+    <item android:title="@string/bloodgroup_manu">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/a_positive"
+                    android:icon="@drawable/ap"
+                    android:title="@string/A_positive_manu"/>
+                <item
+                    android:id="@+id/a_negative"
+                    android:icon="@drawable/an"
+                    android:title="@string/A_nagative_manu"/>
+
+                <item
+                    android:id="@+id/b_positive"
+                    android:icon="@drawable/bp"
+                    android:title="@string/b_positive_manu"/>
+
+                <item
+                    android:id="@+id/b_negative"
+                    android:icon="@drawable/bn"
+                    android:title="@string/b_nagative_manu"/>
+
+                <item
+                    android:id="@+id/o_positive"
+                    android:icon="@drawable/op"
+                    android:title="@string/o_positive_manu"/>
+
+                <item
+                    android:id="@+id/o_negative"
+                    android:icon="@drawable/on"
+                    android:title="@string/o_nagative_manu"/>
+
+                <item
+                    android:id="@+id/ab_positive"
+                    android:icon="@drawable/abp"
+                    android:title="@string/ab_positive_manu"/>
+
+                <item
+                    android:id="@+id/ab_negative"
+                    android:icon="@drawable/abn"
+                    android:title="@string/ab_nagative_manu"/>
+
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/actions">
+    <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/profile"
+                    android:icon="@color/purple_700"
+                    android:title="@string/profile"/>
+                <item
+                    android:id="@+id/notification"
+                    android:icon="@color/purple_700"
+                    android:title="@string/ntification"/>
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@color/purple_700"
+                    android:title="@string/logout"/>
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/communications">
+        <menu>
+            <group android:checkableBehavior="single">
+
+            </group>
+        </menu>
+    </item>
+
+
+</menu>

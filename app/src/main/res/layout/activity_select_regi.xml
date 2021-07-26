@@ -56,7 +56,7 @@
                 android:layout_width="250dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins"
                 android:padding="8dp"
                 android:text="@string/become_a_donner"

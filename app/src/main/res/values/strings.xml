@@ -15,6 +15,8 @@
     <string name="password">Password</string>
     <string name="usercreact">User Correct Email and Password </string>
 
+    <string name="navigation_draw_open">Open navigation drawer</string>
+    <string name="navigation_draw_close">Open navigation close</string>
 
     ///signup
     <string name="name">Name</string>
@@ -40,6 +42,36 @@
         <item>AB+</item>
         <item>AB-</item>
     </string-array>
+
+<string name="bloodgroup_manu"> Blood Group</string>
+<string name="A_positive_manu"> A+ (Positive)</string>
+<string name="A_nagative_manu"> A- (Negative)</string>
+<string name="b_positive_manu"> B+ (Positive)</string>
+<string name="b_nagative_manu"> B- (Negative)</string>
+<string name="o_nagative_manu"> O- (Negative)</string>
+<string name="ab_nagative_manu"> AB- (Negative) </string>
+<string name="o_positive_manu"> O+ (Positive)</string>
+<string name="ab_positive_manu"> AB- (Positive)</string>
+
+
+    <string name="actions">Actions</string>
+    <string name="ntification">Notification</string>
+    <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
+    <string name="language">Language</string>
+    <string name="bangla">বাংলা</string>
+    <string name="english">English</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+
+    <string name="communications">Communications</string>
+    <string name="about">About</string>
+    <string name="shareapp">Share App</string>
+
+    <string name="feedback">Feedback</string>
+    <string name="rate">Rate App</string>
+
+
 
 
 </resources>
