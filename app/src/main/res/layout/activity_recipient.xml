@@ -67,6 +67,17 @@
                         android:layout_marginTop="20dp"
                         android:src="@drawable/user" />
 
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center"
+
+                        android:id="@+id/recipent_bloodgroupspnner"
+                        android:layout_marginLeft="30dp"
+                        android:entries="@array/blood_group"
+                        android:layout_marginTop="15dp"/>
+
 
 
                     <!-- app:counterMaxLength="20"-->
@@ -85,6 +96,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/recipient_name_regi"
                             android:hint="@string/name"
+                            android:fontFamily="@font/poppins"
                             android:inputType="text"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -102,6 +114,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/useId"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/recipient_userid_regi"
                             android:inputType="number"
                             android:maxLines="8" />
@@ -121,6 +134,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/phone"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/recipient_phone_regi"
                             android:inputType="number"
                             android:maxLines="11" />
@@ -140,6 +154,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/city"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/recipient_city_regi"
                             android:inputType="text"
                             android:maxLines="20" />
@@ -159,6 +174,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/email"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/recipient_email_regi"
                             android:inputType="textEmailAddress"
                             />
@@ -178,6 +194,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/password"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/recipient_pass_regi"
                             android:inputType="textPassword"
                             android:maxLines="32" />
@@ -192,6 +209,7 @@
                         android:layout_marginTop="30dp"
                         android:textAllCaps="false"
                         android:text="@string/donner_regi_btn"
+                        android:fontFamily="@font/poppins"
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"/>
 

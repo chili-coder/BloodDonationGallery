@@ -72,6 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="30dp"
                         android:gravity="center"
+
                         android:id="@+id/Dooner_bloodgroupspnner"
                         android:layout_marginLeft="30dp"
                         android:entries="@array/blood_group"
@@ -89,12 +90,12 @@
                         app:helperTextTextColor="@color/red">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/donner_name_regi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/donner_name_regi"
+                            android:fontFamily="@font/poppins"
                             android:hint="@string/name"
-                            android:inputType="text"
-                             />
+                            android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -107,10 +108,11 @@
                         app:helperTextTextColor="@color/red">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/donner_userid_regi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
                             android:hint="@string/useId"
-                            android:id="@+id/donner_userid_regi"
                             android:inputType="number"
                             android:maxLines="8" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -129,6 +131,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/phone"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/donner_phone_regi"
                             android:inputType="number"
                             android:maxLines="11" />
@@ -148,6 +151,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/city"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/donner_city_regi"
                             android:inputType="text"
                             android:maxLines="20" />
@@ -167,6 +171,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/email"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/donner_email_regi"
                             android:inputType="textEmailAddress"
                             />
@@ -186,6 +191,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/password"
+                            android:fontFamily="@font/poppins"
                             android:id="@+id/donner_pass_regi"
                             android:inputType="textPassword"
                             android:maxLines="32" />
@@ -200,6 +206,7 @@
                         android:layout_marginTop="30dp"
                         android:textAllCaps="false"
                         android:text="@string/donner_regi_btn"
+                        android:fontFamily="@font/poppins"
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"/>
 

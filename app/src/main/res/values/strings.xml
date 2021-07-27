@@ -15,6 +15,7 @@
     <string name="password">Password</string>
     <string name="usercreact">User Correct Email and Password </string>
 
+
     <string name="navigation_draw_open">Open navigation drawer</string>
     <string name="navigation_draw_close">Open navigation close</string>
 
@@ -29,6 +30,10 @@
     <string name="Address">Address</string>
     <string name="helperText">Required*</string>
     <string name="donner_regi_btn">Register</string>
+    <string name="blood">Blood</string>
+    <string name="accounttype">Account</string>
+    ///login
+    <string name="forgotpassword">Forgot Password?</string>
 
     //blood group array
     <string-array name="blood_group">
