@@ -41,7 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecipientActivity extends AppCompatActivity {
 
     private CircleImageView signUpImageDonner;
-    private TextInputEditText signUpName,signUpPhone, signUpId,signUpEmail,signUpCity,signUpPassword;
+    private TextInputEditText signUpName,signUpPhone, signUpId,signUpEmail,signUpCity,signUpPassword,signUpAge;
     private Spinner signupBGSpinner;
     private Button signUpButton;
 
@@ -67,6 +67,7 @@ public class RecipientActivity extends AppCompatActivity {
         signUpEmail=findViewById(R.id.recipient_email_regi);
         signUpPassword=findViewById(R.id.recipient_pass_regi);
         signUpButton=findViewById(R.id.recipient_regi_btn);
+        signUpAge=findViewById(R.id.recipient_age_regi);
         loaderDiaglog=new ProgressDialog(this);
 
 
@@ -96,6 +97,7 @@ public class RecipientActivity extends AppCompatActivity {
                 final String userId = signUpId.getText().toString().trim();
                 final String city = signUpCity.getText().toString().trim();
                 final String phone = signUpPhone.getText().toString().trim();
+                final String age = signUpAge.getText().toString().trim();
                 final String bloodGroup = signupBGSpinner.getSelectedItem().toString();
 
 
@@ -117,6 +119,11 @@ public class RecipientActivity extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(city)){
+                    signUpAge.setError("Age is required!");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(city)){
                     signUpCity.setError("City is required!");
                     return;
                 }
@@ -130,7 +137,7 @@ public class RecipientActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-                    loaderDiaglog.setMessage("SignUp Loading...");
+                    loaderDiaglog.setMessage("Register Loading...");
                     loaderDiaglog.setCanceledOnTouchOutside(false);
                     loaderDiaglog.show();
 
@@ -154,18 +161,19 @@ public class RecipientActivity extends AppCompatActivity {
                                 userInfo.put("bloodgroup",bloodGroup);
                                 userInfo.put("userid",userId);
                                 userInfo.put("phone",phone);
+                                userInfo.put("age",age);
                                 userInfo.put("city",city);
                                 userInfo.put("email",email);
                                 userInfo.put("password",password);
-                                userInfo.put("type","recipient");
-                                userInfo.put("search","recipient"+bloodGroup);
+                                userInfo.put("type","Recipient");
+                                userInfo.put("search","Recipient"+bloodGroup);
 
                                 userDataRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
 
                                         if (task.isSuccessful()){
-                                            Toast.makeText(RecipientActivity.this, "Successful SignUp", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RecipientActivity.this, "Register Successful ", Toast.LENGTH_SHORT).show();
 
                                         }else {
                                             Toast.makeText(RecipientActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
@@ -218,7 +226,7 @@ public class RecipientActivity extends AppCompatActivity {
                                                             @Override
                                                             public void onComplete(@NonNull Task task) {
                                                                 if (task.isSuccessful()){
-                                                                    Toast.makeText(RecipientActivity.this, "Image url added to database successfully", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(RecipientActivity.this, "", Toast.LENGTH_SHORT).show();
 
                                                                 } else {
                                                                     Toast.makeText(RecipientActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
@@ -237,7 +245,7 @@ public class RecipientActivity extends AppCompatActivity {
                                         }
                                     });
 
-                                    Intent intent = new Intent(RecipientActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(RecipientActivity.this,LoginActivity.class);
                                     startActivity(intent);
                                     finish();
                                     loaderDiaglog.dismiss();

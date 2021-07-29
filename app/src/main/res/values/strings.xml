@@ -48,15 +48,15 @@
         <item>AB-</item>
     </string-array>
 
-<string name="bloodgroup_manu"> Blood Group</string>
-<string name="A_positive_manu"> A+ (Positive)</string>
-<string name="A_nagative_manu"> A- (Negative)</string>
-<string name="b_positive_manu"> B+ (Positive)</string>
-<string name="b_nagative_manu"> B- (Negative)</string>
-<string name="o_nagative_manu"> O- (Negative)</string>
-<string name="ab_nagative_manu"> AB- (Negative) </string>
-<string name="o_positive_manu"> O+ (Positive)</string>
-<string name="ab_positive_manu"> AB- (Positive)</string>
+    <string name="bloodgroup_manu"> Blood Group</string>
+    <string name="A_positive_manu"> A+ (Positive)</string>
+    <string name="A_nagative_manu"> A- (Negative)</string>
+    <string name="b_positive_manu"> B+ (Positive)</string>
+    <string name="b_nagative_manu"> B- (Negative)</string>
+    <string name="o_nagative_manu"> O- (Negative)</string>
+    <string name="ab_nagative_manu"> AB- (Negative) </string>
+    <string name="o_positive_manu"> O+ (Positive)</string>
+    <string name="ab_positive_manu"> AB- (Positive)</string>
 
 
     <string name="actions">Actions</string>
@@ -75,8 +75,19 @@
 
     <string name="feedback">Feedback</string>
     <string name="rate">Rate App</string>
-
-
+    <string name="namep">Name: </string>
+    <string name="phonep">Phone: </string>
+    <string name="emailp">Email:</string>
+    <string name="cityp">City: </string>
+    <string name="bloodgroupp">Blood Group: </string>
+    <string name="addressp">Address: </string>
+    <string name="editprofile">Edit Profile</string>
+    <string name="useridp">User Id#: </string>
+    <string name="typep">Type: </string>
+    <string name="genderp">Gender: </string>
+    <string name="agep">Age: </string>
+    <string name="lastdatedonation">Update Last Blood Donation: </string>
+    <string name="lastdonation">Last Donation</string>
 
 
 </resources>

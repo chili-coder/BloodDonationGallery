@@ -41,7 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class DonnerRegiActivity extends AppCompatActivity {
 
     private CircleImageView signUpImageDonner;
-    private TextInputEditText signUpName,signUpPhone, signUpId,signUpEmail,signUpCity,signUpPassword;
+    private TextInputEditText signUpName,signUpPhone, signUpId,signUpEmail,signUpCity,signUpPassword, signUpAge;
     private Spinner signupBGSpinner;
     private Button signUpButton;
 
@@ -60,7 +60,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donner_regi);
 
-        signUpImageDonner = findViewById(R.id.donner_profile);
+        signUpImageDonner = findViewById(R.id.image_profile);
         signupBGSpinner =findViewById(R.id.Dooner_bloodgroupspnner);
         signUpName=findViewById(R.id.donner_name_regi);
         signUpId=findViewById(R.id.donner_userid_regi);
@@ -69,6 +69,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
         signUpEmail=findViewById(R.id.donner_email_regi);
         signUpPassword=findViewById(R.id.donner_pass_regi);
         signUpButton=findViewById(R.id.donner_regi_btn);
+        signUpAge=findViewById(R.id.donner_age_regi);
        loaderDiaglog=new ProgressDialog(this);
 
 
@@ -98,6 +99,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
                 final String userId = signUpId.getText().toString().trim();
                 final String city = signUpCity.getText().toString().trim();
                 final String phone = signUpPhone.getText().toString().trim();
+                final String age = signUpAge.getText().toString().trim();
                 final String bloodGroup = signupBGSpinner.getSelectedItem().toString();
 
 
@@ -118,6 +120,10 @@ public class DonnerRegiActivity extends AppCompatActivity {
                     signUpPhone.setError("Phone is required!");
                     return;
                 }
+                if (TextUtils.isEmpty(age)){
+                    signUpAge.setError("Age is required!");
+                    return;
+                }
                 if (TextUtils.isEmpty(city)){
                     signUpCity.setError("City is required!");
                     return;
@@ -132,7 +138,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-                    loaderDiaglog.setMessage("SignUp Loading...");
+                    loaderDiaglog.setMessage("Register Loading...");
                     loaderDiaglog.setCanceledOnTouchOutside(false);
                     loaderDiaglog.show();
 
@@ -156,18 +162,19 @@ public class DonnerRegiActivity extends AppCompatActivity {
                                 userInfo.put("bloodgroup",bloodGroup);
                                 userInfo.put("userid",userId);
                                 userInfo.put("phone",phone);
+                                userInfo.put("age",age);
                                 userInfo.put("city",city);
                                 userInfo.put("email",email);
                                 userInfo.put("password",password);
-                                userInfo.put("type","donor");
-                                userInfo.put("search","donor"+bloodGroup);
+                                userInfo.put("type","Donor");
+                                userInfo.put("search","Donor"+bloodGroup);
 
                                 userDataRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
 
                                         if (task.isSuccessful()){
-                                            Toast.makeText(DonnerRegiActivity.this, "Successful SignUp", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(DonnerRegiActivity.this, "Register Successful", Toast.LENGTH_SHORT).show();
 
                                         }else {
                                             Toast.makeText(DonnerRegiActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
@@ -220,7 +227,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
                                                             @Override
                                                             public void onComplete(@NonNull Task task) {
                                                              if (task.isSuccessful()){
-                                                                 Toast.makeText(DonnerRegiActivity.this, "Image url added to database successfully", Toast.LENGTH_SHORT).show();
+                                                                 Toast.makeText(DonnerRegiActivity.this, "", Toast.LENGTH_SHORT).show();
 
                                                              } else {
                                                                  Toast.makeText(DonnerRegiActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
@@ -239,7 +246,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
                                         }
                                     });
 
-                                    Intent intent = new Intent(DonnerRegiActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(DonnerRegiActivity.this,LoginActivity.class);
                                     startActivity(intent);
                                     finish();
                                     loaderDiaglog.dismiss();
