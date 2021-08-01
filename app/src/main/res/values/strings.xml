@@ -67,6 +67,7 @@
     <string name="bangla">বাংলা</string>
     <string name="english">English</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="signout">SignOut</string>
 
 
     <string name="communications">Communications</string>
@@ -82,12 +83,18 @@
     <string name="bloodgroupp">Blood Group: </string>
     <string name="addressp">Address: </string>
     <string name="editprofile">Edit Profile</string>
-    <string name="useridp">User Id#: </string>
+    <string name="useridp">NID No#: </string>
     <string name="typep">Type: </string>
     <string name="genderp">Gender: </string>
     <string name="agep">Age: </string>
     <string name="lastdatedonation">Update Last Blood Donation: </string>
     <string name="lastdonation">Last Donation</string>
+
+    ///email verification
+    <string name="noverify">No Verify </string>
+    <string name="Clicktoverifyemail">Click to Verify Email</string>
+    <string name="noverifyemail">No Email Verification</string>
+    <string name="verified">Verified</string>
 
 
 </resources>

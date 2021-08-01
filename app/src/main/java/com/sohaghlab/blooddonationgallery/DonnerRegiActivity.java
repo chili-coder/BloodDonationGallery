@@ -128,10 +128,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
                     signUpCity.setError("City is required!");
                     return;
                 }
-                if (TextUtils.isEmpty(userId)){
-                    signUpId.setError("UserId is required!");
-                    return;
-                }
+
 
                 if (bloodGroup.equals("Select Blood Group")){
                     Toast.makeText(DonnerRegiActivity.this, "Select Blood Group", Toast.LENGTH_SHORT).show();
@@ -150,6 +147,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
 
                                 String error =task.getException().toString();
                                 Toast.makeText(DonnerRegiActivity.this, "Error! " +error, Toast.LENGTH_SHORT).show();
+                                loaderDiaglog.dismiss();
 
                             }else {
                                 String currentUserId = mAuth.getCurrentUser().getUid();
@@ -167,6 +165,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
                                 userInfo.put("email",email);
                                 userInfo.put("password",password);
                                 userInfo.put("type","Donor");
+                                userInfo.put("lastdonation","Null");
                                 userInfo.put("search","Donor"+bloodGroup);
 
                                 userDataRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {

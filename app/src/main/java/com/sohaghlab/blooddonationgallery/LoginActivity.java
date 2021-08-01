@@ -48,16 +48,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 FirebaseUser user = mAuth.getCurrentUser();
-                if (user != null){
+                if (user != null) {
+                    // User is logged in
+                   // Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                   // startActivity(intent);
 
-
-
-
-                    
-
-
-
-
+                }else{
+                    // User is not logged in
+                   // startActivity(new Intent(this,LoginActivity.class));
+                    Toast.makeText(LoginActivity.this, "Please SignIn Agien", Toast.LENGTH_SHORT).show();
                 }
 
             }

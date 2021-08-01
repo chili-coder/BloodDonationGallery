@@ -6,7 +6,7 @@
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
     android:id="@+id/drawerlayout"
-    android:background="@color/white"
+    android:background="@drawable/back"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -32,6 +32,7 @@
         android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
+        android:progressBackgroundTint="@color/white"
         android:layout_height="wrap_content">
 
     </ProgressBar>
@@ -60,5 +61,7 @@
         app:itemTextColor="@drawable/nav_select_item"
         android:id="@+id/navigationbar"
         android:layout_height="wrap_content"/>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
