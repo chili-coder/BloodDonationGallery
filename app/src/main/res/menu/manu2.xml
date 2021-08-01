@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/about"
+        android:id="@+id/serch_manu2"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView"
+        android:title="@string/search"/>
+    <item
+        android:id="@+id/setting2"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always"
+        android:title="@string/setting"/>
+    <item
+        android:id="@+id/about2"
         android:icon="@color/purple_700"
         android:title="@string/about"/>
     <item
-        android:id="@+id/share"
+        android:id="@+id/share2"
         android:icon="@color/purple_700"
         android:title="@string/shareapp"/>
 
 
-    <item
-        android:id="@+id/rate"
-        android:icon="@color/purple_700"
-        android:title="@string/rate"/>
-    <item
-        android:id="@+id/privacy_policy"
-        android:icon="@color/purple_700"
-        android:title="@string/privacy_policy"/>
 
-    <item
-        android:id="@+id/feedback"
-        android:icon="@color/purple_700"
-        android:title="@string/feedback"/>
 
 </menu>

@@ -25,7 +25,7 @@
     <string name="gender">Gender</string>
     <string name="bloodgroup">Blood Group</string>
     <string name="city">City</string>
-    <string name="useId">User ID</string>
+    <string name="useId">NID No (Optional)</string>
     <string name="age">Age</string>
     <string name="Address">Address</string>
     <string name="helperText">Required*</string>
@@ -56,7 +56,7 @@
     <string name="o_nagative_manu"> O- (Negative)</string>
     <string name="ab_nagative_manu"> AB- (Negative) </string>
     <string name="o_positive_manu"> O+ (Positive)</string>
-    <string name="ab_positive_manu"> AB- (Positive)</string>
+    <string name="ab_positive_manu"> AB+ (Positive)</string>
 
 
     <string name="actions">Actions</string>
@@ -73,6 +73,8 @@
     <string name="communications">Communications</string>
     <string name="about">About</string>
     <string name="shareapp">Share App</string>
+    <string name="search">Search</string>
+    <string name="setting">Settings</string>
 
     <string name="feedback">Feedback</string>
     <string name="rate">Rate App</string>
@@ -93,8 +95,14 @@
     ///email verification
     <string name="noverify">No Verify </string>
     <string name="Clicktoverifyemail">Click to Verify Email</string>
-    <string name="noverifyemail">No Email Verification</string>
+    <string name="noverifyemail">No Email Verification <b />
+        Click to Verification</string>
     <string name="verified">Verified</string>
+
+    <string name="forgot">Forgot Password</string>
+    <string name="sendemail">Send To Email </string>
+    <string name="Ihavegot">I have Remind Password</string>
+    <string name="backSingIn">Back To SignIn</string>
 
 
 </resources>

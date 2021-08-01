@@ -2,6 +2,7 @@ package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -176,7 +177,13 @@ public class DonnerRegiActivity extends AppCompatActivity {
                                             Toast.makeText(DonnerRegiActivity.this, "Register Successful", Toast.LENGTH_SHORT).show();
 
                                         }else {
-                                            Toast.makeText(DonnerRegiActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+
+                                            new AlertDialog.Builder(DonnerRegiActivity.this)
+                                                    .setTitle("SignUp Error!")
+                                                    .setMessage("Please try agian")
+                                                    .setPositiveButton("ok", null)
+                                                    .show();
+                                           // Toast.makeText(DonnerRegiActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                                         }
 
                                         finish();

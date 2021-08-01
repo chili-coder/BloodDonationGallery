@@ -1,6 +1,7 @@
 package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -18,10 +19,11 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.sohaghlab.blooddonationgallery.Model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView signup;
+    TextView signup, forgotPass;
     private TextInputEditText emailLog,passwordLog;
     private ProgressDialog loaderDiaglog;
     Button signIn;
@@ -34,10 +36,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        signup=findViewById(R.id.signup);
-        signIn=findViewById(R.id.login);
-        emailLog=findViewById(R.id.email_login);
+        signup=findViewById(R.id.backtoSignIn);
+        signIn=findViewById(R.id.sendEmailVery);
+        emailLog=findViewById(R.id.email_verification);
         passwordLog=findViewById(R.id.password_login);
+        forgotPass=findViewById(R.id.forgot_signin_password);
+
+
 
         loaderDiaglog=new ProgressDialog(this);
 
@@ -49,18 +54,28 @@ public class LoginActivity extends AppCompatActivity {
 
                 FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null) {
-                    // User is logged in
-                   // Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                   // startActivity(intent);
+                   Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
 
                 }else{
                     // User is not logged in
                    // startActivity(new Intent(this,LoginActivity.class));
-                    Toast.makeText(LoginActivity.this, "Please SignIn Agien", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(LoginActivity.this, "Please SignIn Agien", Toast.LENGTH_SHORT).show();
                 }
 
             }
         };
+
+        forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(LoginActivity.this,ForgotPasswordActivity.class);
+               startActivity(intent);
+
+
+            }
+        });
 
 
 
@@ -95,7 +110,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Toast.makeText(LoginActivity.this, "SignIn Successfully", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(LoginActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(LoginActivity.this)
+                                        .setTitle("SignIn Error!")
+                                        .setMessage("Your email & password incorrect")
+                                        .setPositiveButton("ok", null)
+                                        .show();
                             }
 
                             loaderDiaglog.dismiss();

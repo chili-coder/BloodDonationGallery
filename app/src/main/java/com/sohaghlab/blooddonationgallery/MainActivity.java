@@ -12,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -170,6 +172,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
     private void readRecipients() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
                 .child("users");
@@ -239,9 +242,52 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.profile:
-                Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
-                startActivity(intent);
+            case
+                    R.id.profile:
+                     Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+                     startActivity(intent);
+                     break;
+            case R.id.a_negative:
+                Intent intent1 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent1.putExtra("group","A-");
+                startActivity(intent1);
+                break;
+            case R.id.b_negative:
+                Intent intentA = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intentA.putExtra("group","B-");
+                startActivity(intentA);
+                break;
+            case R.id.o_negative:
+                Intent intent2 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent2.putExtra("group","O-");
+                startActivity(intent2);
+                break;
+            case R.id.ab_negative:
+                Intent intent3 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent3.putExtra("group","AB-");
+                startActivity(intent3);
+                break;
+            case R.id.a_positive:
+                Intent intent4 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent4.putExtra("group","A+");
+                startActivity(intent4);
+                break;
+            case R.id.b_positive:
+                Intent intent5 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent5.putExtra("group","B+");
+                startActivity(intent5);
+                break;
+            case R.id.o_positive:
+                Intent intent6 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent6.putExtra("group","O+");
+                startActivity(intent6);
+                break;
+            case R.id.ab_positive:
+                Intent intent7 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
+                intent7.putExtra("group","AB+");
+                startActivity(intent7);
+                break;
+            default:
                 break;
 
           //  case R.id.logout:
@@ -259,6 +305,35 @@ public class MainActivity extends AppCompatActivity
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu2) {
+        getMenuInflater().inflate(R.menu.manu2,menu2);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case
+                R.id.about2:
+                Toast.makeText(this, "about", Toast.LENGTH_SHORT).show();
+                break;
+
+            case
+                R.id.share2:
+                Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
+
+                break;
+            default:
+                break;
+
+        }
+
+
         return true;
     }
 }

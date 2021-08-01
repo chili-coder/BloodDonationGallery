@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodDonationGallery">
-        <activity android:name=".PersonActivity"></activity>
+        <activity android:name=".CatagorySelectedActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".PersonActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RecipientActivity" />
         <activity android:name=".DonnerRegiActivity" />

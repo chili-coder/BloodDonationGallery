@@ -2,6 +2,7 @@ package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -173,10 +174,22 @@ public class RecipientActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task task) {
 
                                         if (task.isSuccessful()){
+
+                                            new AlertDialog.Builder(RecipientActivity.this)
+                                                    .setTitle("SignUp Error!")
+                                                    .setMessage("Please try agian")
+                                                    .setPositiveButton("ok", null)
+                                                    .show();
                                             Toast.makeText(RecipientActivity.this, "Register Successful ", Toast.LENGTH_SHORT).show();
 
                                         }else {
-                                            Toast.makeText(RecipientActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+
+                                            new AlertDialog.Builder(RecipientActivity.this)
+                                                    .setTitle("SignUp Error!")
+                                                    .setMessage("Please try agian")
+                                                    .setPositiveButton("ok", null)
+                                                    .show();
+                                          //  Toast.makeText(RecipientActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                                         }
 
                                         finish();
