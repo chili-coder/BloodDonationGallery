@@ -3,14 +3,21 @@ package com.sohaghlab.blooddonationgallery;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +31,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sohaghlab.blooddonationgallery.Model.User;
+
+import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -34,8 +44,19 @@ public class ProfileActivity extends AppCompatActivity {
 
     LinearLayout updateDonationDate;
     private  FirebaseAuth mFirebaseAuth;
-    TextView signout;
+
+    LinearLayout dateDonteLayout;
+
     TextView sendEmailVerify,verified;
+    TextView lastBloodDonation,clickToUpdateDate;
+
+
+
+    private FirebaseAuth mAuth;
+    private DatabaseReference userDataRef;
+    public Toolbar toolbar;
+    private static final  String TAG="ProfileActivity";
+    private  DatePickerDialog.OnDateSetListener onDateSetListener;
 
 
 
@@ -45,9 +66,12 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
+
+
         mFirebaseAuth= FirebaseAuth.getInstance();
 
-
+        mAuth=FirebaseAuth.getInstance();
 
         updateDonationDate = findViewById(R.id.BloodDonationDateLayout);
 
@@ -62,6 +86,39 @@ public class ProfileActivity extends AppCompatActivity {
         cityPro=findViewById(R.id.cityPro);
         bloodGroupPro=findViewById(R.id.bloodPro);
         verified=findViewById(R.id.verified);
+        clickToUpdateDate=findViewById(R.id.clicktoupdatedate);
+        lastBloodDonation=findViewById(R.id.lastDonationDatePro);
+
+        dateDonteLayout=findViewById(R.id.BloodDonationDateLayout);
+
+
+
+
+
+
+
+      /*  onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month=month+1;
+                Log.d(TAG,"onDataSet: date:"+dayOfMonth+"/"+month+"/"+year) ;
+                String date = dayOfMonth+"/"+month+"/"+year;
+                lastBloodDonation.setText(date);
+
+
+
+
+
+            }
+        };
+
+       */
+
+
+
+
+
+
 
         sendEmailVerify=findViewById(R.id.noVarification);
         if (!mFirebaseAuth.getCurrentUser().isEmailVerified()){
@@ -98,17 +155,9 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-       signout=findViewById(R.id.signoutPro);
-       signout.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(ProfileActivity.this,LoginActivity.class);
-               startActivity(intent);
 
-               mFirebaseAuth.signOut();
-               finish();
-           }
-       });
+
+
 
         agePro=findViewById(R.id.agePro);
 
@@ -117,7 +166,101 @@ public class ProfileActivity extends AppCompatActivity {
         );
 
 
+
         reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String type =snapshot.child("type").getValue().toString();
+                if (type.equals("Donor")){
+
+
+                    if (snapshot.exists()){
+                        accountType.setText(snapshot.child("type").getValue().toString());
+                        namePro.setText(snapshot.child("name").getValue().toString());
+                        emailPro.setText(snapshot.child("email").getValue().toString());
+                        phonePro.setText(snapshot.child("phone").getValue().toString());
+                        agePro.setText(snapshot.child("age").getValue().toString());
+                        cityPro.setText(snapshot.child("city").getValue().toString());
+                        userIdPro.setText(snapshot.child("userid").getValue().toString());
+
+
+                          lastBloodDonation.setText(snapshot.child("lastdonation").getValue().toString());
+
+
+
+                        bloodGroupPro.setText(snapshot.child("bloodgroup").getValue().toString());
+
+
+                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
+
+
+
+                        editProfile.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(ProfileActivity.this,UserDataUpdateActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+
+
+                    }
+
+
+
+                } else {
+                    if (snapshot.exists()){
+                        accountType.setText(snapshot.child("type").getValue().toString());
+                        namePro.setText(snapshot.child("name").getValue().toString());
+                        emailPro.setText(snapshot.child("email").getValue().toString());
+                        phonePro.setText(snapshot.child("phone").getValue().toString());
+                        agePro.setText(snapshot.child("age").getValue().toString());
+                        cityPro.setText(snapshot.child("city").getValue().toString());
+                        userIdPro.setText(snapshot.child("userid").getValue().toString());
+
+
+
+
+                       // lastBloodDonation.setText(snapshot.child("lastdonation").getValue().toString());
+
+
+
+                        bloodGroupPro.setText(snapshot.child("bloodgroup").getValue().toString());
+
+
+                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
+
+                        dateDonteLayout.setVisibility(View.GONE);
+
+                        editProfile.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(ProfileActivity.this,UserReciUpdateActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+     /*   reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
@@ -128,7 +271,14 @@ public class ProfileActivity extends AppCompatActivity {
                     agePro.setText(snapshot.child("age").getValue().toString());
                     cityPro.setText(snapshot.child("city").getValue().toString());
                     userIdPro.setText(snapshot.child("userid").getValue().toString());
+
+
+                 //   lastBloodDonation.setText(snapshot.child("lastdonation").getValue().toString());
+
+
+
                     bloodGroupPro.setText(snapshot.child("bloodgroup").getValue().toString());
+
 
                     Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
 
@@ -140,6 +290,8 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+
+      */
 
 
 
@@ -164,6 +316,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 

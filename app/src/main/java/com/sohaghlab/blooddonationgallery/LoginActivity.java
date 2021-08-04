@@ -60,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 }else{
                     // User is not logged in
-                   // startActivity(new Intent(this,LoginActivity.class));
-                   // Toast.makeText(LoginActivity.this, "Please SignIn Agien", Toast.LENGTH_SHORT).show();
+                  // startActivity(new Intent(this,LoginActivity.class));
+                   //Toast.makeText(LoginActivity.this, "Please SignIn Agien", Toast.LENGTH_SHORT).show();
                 }
 
             }

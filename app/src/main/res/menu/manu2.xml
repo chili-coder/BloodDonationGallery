@@ -21,7 +21,14 @@
         android:id="@+id/share2"
         android:icon="@color/purple_700"
         android:title="@string/shareapp"/>
-
+    <item
+        android:id="@+id/rate"
+        android:icon="@color/purple_700"
+        android:title="@string/rate"/>
+    <item
+        android:id="@+id/privacy_policy"
+        android:icon="@color/purple_700"
+        android:title="@string/privacy_policy"/>
 
 
 

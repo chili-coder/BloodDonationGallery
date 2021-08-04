@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity
 
   private  FirebaseAuth mFirebaseAuth;
 
+  private  TextView donateTextFix;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +71,8 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitleTextColor(0xFFFFFFFF);
 
         mFirebaseAuth= FirebaseAuth.getInstance();
+
+        donateTextFix=findViewById(R.id.donateDateFix);
 
 
 
@@ -98,8 +102,11 @@ public class MainActivity extends AppCompatActivity
                 String type =snapshot.child("type").getValue().toString();
                 if (type.equals("Donor")){
                     readRecipients();
+
+
                 } else {
                     readDonors();
+
                 }
 
             }
@@ -153,8 +160,15 @@ public class MainActivity extends AppCompatActivity
                     String type =snapshot.child("type").getValue().toString();
                     nav_type.setText(type);
 
-                    String imageUrl =snapshot.child("profileimageurl").getValue().toString();
-                    Glide.with(getApplicationContext()).load(imageUrl).into(navProfile);
+                    if (snapshot.hasChild("profileimageurl")){
+
+                        String imageUrl =snapshot.child("profileimageurl").getValue().toString();
+                        Glide.with(getApplicationContext()).load(imageUrl).into(navProfile);
+
+                    } else {
+                        navProfile.setImageResource(R.drawable.user);
+
+                    }
 
                 }
             }
@@ -189,10 +203,12 @@ public class MainActivity extends AppCompatActivity
                 userAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
 
+
                 if (userList.isEmpty()){
 
                     Toast.makeText(MainActivity.this, "No Recipient Found!", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+
 
                 }
             }
@@ -247,6 +263,15 @@ public class MainActivity extends AppCompatActivity
                      Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
                      startActivity(intent);
                      break;
+
+            case
+                    R.id.info:
+                Intent info = new Intent(MainActivity.this,PersonActivity.class);
+                startActivity(info);
+                break;
+
+
+
             case R.id.a_negative:
                 Intent intent1 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
                 intent1.putExtra("group","A-");
@@ -287,15 +312,16 @@ public class MainActivity extends AppCompatActivity
                 intent7.putExtra("group","AB+");
                 startActivity(intent7);
                 break;
+
+
+           case R.id.logout:
+               Intent logout = new Intent(MainActivity.this,LoginActivity.class);
+               startActivity(logout);
+               mFirebaseAuth.signOut();
+               finish();
+                break;
             default:
                 break;
-
-          //  case R.id.logout:
-              //  Intent logout = new Intent(MainActivity.this,LoginActivity.class);
-              //  startActivity(logout);
-              //  mFirebaseAuth.signOut();
-             //   finish();
-               // break;
 
 
 

@@ -1,6 +1,7 @@
 package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -102,6 +104,20 @@ public class CatagorySelectedActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                         }
                         userAdapter.notifyDataSetChanged();
+
+                        if (userList.isEmpty()){
+
+                            new AlertDialog.Builder(CatagorySelectedActivity.this)
+                                    .setTitle("Not Found!")
+                                    .setMessage("No register yet")
+                                    .setPositiveButton("ok", null)
+                                    .show();
+
+
+
+                            progressBar.setVisibility(View.GONE);
+
+                        }
                     }
 
                     @Override

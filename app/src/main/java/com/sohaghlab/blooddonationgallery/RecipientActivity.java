@@ -133,6 +133,7 @@ public class RecipientActivity extends AppCompatActivity {
                     return;
                 }
 
+
                 if (bloodGroup.equals("Select Blood Group")){
                     Toast.makeText(RecipientActivity.this, "Select Blood Group", Toast.LENGTH_SHORT).show();
                     return;
@@ -289,7 +290,7 @@ public class RecipientActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecipientActivity.this,MainActivity.class);
+                Intent intent = new Intent(RecipientActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });

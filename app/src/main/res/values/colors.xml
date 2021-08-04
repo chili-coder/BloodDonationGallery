@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#AB0000</color>
     <color name="green">#4CAF50</color>
+    <color name="table_row_color">#FBD8D6</color>
 </resources>

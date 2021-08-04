@@ -1,9 +1,720 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".PersonActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_margin="10dp">
+        <TextView
+           android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/whileblood"
+            android:padding="5dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:background="@color/purple_700">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/whileblood2"
+            android:layout_marginBottom="20dp"
+            android:padding="5dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+        <TableRow
+
+            android:background="@color/purple_700">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/bloodtype"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/candonete"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/canrecive"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/o"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwO"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwO"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/o1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/everyone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwO1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/a"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwA"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwA"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/a1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwA1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwA1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/b"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwAB"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwB"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/b1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwB1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwB1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/ab"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwAB"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/everyone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/ab1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cdwAB1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/crwAB1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+
+        <TextView
+           android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plasmaPlatelet"
+            android:padding="5dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:background="@color/purple_700">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plasmaPlatelet2"
+            android:layout_marginBottom="20dp"
+            android:padding="5dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+        <TableRow
+            android:background="@color/purple_700">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/bloodtype"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/candonete"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/canrecive"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/o"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cd1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/everyone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/o1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cd1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/everyone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/a"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cd2"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cr2"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/a1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cd2"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cr2"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/b"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cd3"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cr3"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/b1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cd3"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cr3"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/ab"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/everyone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cr4"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:background="@color/table_row_color">
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/ab1"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/everyone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/cr4"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="0dp"
+                android:gravity="center"
+
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>
+</LinearLayout>

@@ -70,6 +70,7 @@
     <string name="signout">SignOut</string>
 
 
+
     <string name="communications">Communications</string>
     <string name="about">About</string>
     <string name="shareapp">Share App</string>
@@ -89,8 +90,17 @@
     <string name="typep">Type: </string>
     <string name="genderp">Gender: </string>
     <string name="agep">Age: </string>
-    <string name="lastdatedonation">Update Last Blood Donation: </string>
+    <string name="lastdatedonation">Update blood group: </string>
     <string name="lastdonation">Last Donation</string>
+
+    //updateprofile
+
+    <string name="updateprofile">Update Profile</string>
+    <string name="lastdoneteDate">Last Donate Date</string>
+    <string name="update">Update</string>
+    <string name="backtoprofile">Back to Home</string>
+    <string name="info">Blood Info</string>
+
 
     ///email verification
     <string name="noverify">No Verify </string>
@@ -103,6 +113,53 @@
     <string name="sendemail">Send To Email </string>
     <string name="Ihavegot">I have Remind Password</string>
     <string name="backSingIn">Back To SignIn</string>
+
+
+    ///info page
+
+    <string name="bloodtype">Blood Type</string>
+    <string name="candonete">Can Donate Red Blood Cells To</string>
+    <string name="canrecive">Can Receive Red Blood Cells From</string>
+    <string name="o">O+</string>
+    <string name="o1">O-</string>
+    <string name="a">A+</string>
+    <string name="a1">A-</string>
+    <string name="b">B+</string>
+    <string name="b1">B-</string>
+    <string name="ab">AB+</string>
+    <string name="ab1">AB-</string>
+    <string name="everyone">Everyone</string>
+    <string name="cd1">O+, O-</string>
+    <string name="cd2">A+, A-, O+, O-</string>
+    <string name="cd3">B+, B-, O+, O-</string>
+    <string name="cr2">A, A-, AB, AB-</string>
+    <string name="cr3">B, B-, AB, AB-</string>
+    <string name="cr4">AB, AB-</string>
+    <string name="plasmaPlatelet">Plasma and Platelet</string>
+    <string name="plasmaPlatelet2">When it comes to blood components,
+        compatibility is the opposite of whole blood. Donors with
+        Type AB blood are the universal donors of
+        platelets and plasma.</string>
+
+    <string name="whileblood">Whole Blood</string>
+    <string name="whileblood2">There are eight different blood types, and they are not
+        always compatible with each other.
+        Interestingly, people who have O-negative blood are
+        considered universal donors for the entire population.</string>
+    <string name="cdwO">O+, A+, B+, AB+</string>
+    <string name="cdwA">A+, AB+</string>
+    <string name="cdwA1">A+, A-, AB+, AB-</string>
+    <string name="cdwB">B+, AB+</string>
+    <string name="cdwB1">B+, B-, AB-, AB+</string>
+    <string name="cdwAB">AB+</string>
+    <string name="cdwAB1">AB-, AB+</string>
+    <string name="crwO">O+, O-</string>
+    <string name="crwO1">O-</string>
+    <string name="crwA">A+, A-, O+, O-</string>
+    <string name="crwA1">A-, O-</string>
+    <string name="crwB">B+, B-, O+, O-</string>
+    <string name="crwB1">B-, O-</string>
+    <string name="crwAB1">AB-, A-, B-,O-</string>
 
 
 </resources>

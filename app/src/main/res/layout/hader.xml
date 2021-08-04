@@ -76,10 +76,14 @@
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+
 
         android:fontFamily="@font/poppins"
         android:text="@string/accounttype"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_700"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">

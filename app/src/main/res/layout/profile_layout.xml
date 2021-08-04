@@ -168,12 +168,14 @@
                 app:layout_constraintTop_toTopOf="@+id/textView16" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/donateDateFix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/lastdonation"
+
+
                 app:layout_constraintEnd_toEndOf="@+id/profileImageRecy"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -185,9 +187,9 @@
                 android:fontFamily="@font/poppins"
                 android:text="00/00/0000"
                 android:textColor="@color/purple_700"
-                app:layout_constraintEnd_toEndOf="@+id/textView18"
-                app:layout_constraintStart_toStartOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                app:layout_constraintEnd_toEndOf="@+id/donateDateFix"
+                app:layout_constraintStart_toStartOf="@+id/donateDateFix"
+                app:layout_constraintTop_toBottomOf="@+id/donateDateFix" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

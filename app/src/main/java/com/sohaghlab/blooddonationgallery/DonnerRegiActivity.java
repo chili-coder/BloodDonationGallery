@@ -131,6 +131,9 @@ public class DonnerRegiActivity extends AppCompatActivity {
                 }
 
 
+
+
+
                 if (bloodGroup.equals("Select Blood Group")){
                     Toast.makeText(DonnerRegiActivity.this, "Select Blood Group", Toast.LENGTH_SHORT).show();
                     return;
@@ -283,7 +286,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DonnerRegiActivity.this,MainActivity.class);
+                Intent intent = new Intent(DonnerRegiActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
