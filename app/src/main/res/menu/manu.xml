@@ -12,6 +12,16 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_person"
         android:title="@string/profile"/>
+
+    <item
+        android:id="@+id/bloodBankManu"
+        android:icon="@drawable/ic_person"
+        android:title="@string/bloodbank"/>
+
+    <item
+        android:id="@+id/ambulance"
+        android:icon="@drawable/ic_person"
+        android:title="@string/ambulance"/>
     <item
         android:id="@+id/info"
         android:icon="@drawable/ic_blood"

@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -270,6 +271,17 @@ public class MainActivity extends AppCompatActivity
                 startActivity(info);
                 break;
 
+            case
+                    R.id.bloodBankManu:
+                Intent bank = new Intent(MainActivity.this,BloodBankActivity.class);
+                startActivity(bank);
+                break;
+            case
+                    R.id.ambulance:
+                Intent ambulance = new Intent(MainActivity.this,AmbulanceActivity.class);
+                startActivity(ambulance);
+                break;
+
 
 
             case R.id.a_negative:
@@ -354,6 +366,14 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
 
                 break;
+
+            case
+                    R.id.serch_manu2:
+
+
+                         break;
+
+
             default:
                 break;
 

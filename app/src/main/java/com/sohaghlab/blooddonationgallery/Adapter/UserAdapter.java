@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.sohaghlab.blooddonationgallery.Model.User;
 import com.sohaghlab.blooddonationgallery.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -23,9 +26,11 @@ public class UserAdapter extends  RecyclerView.Adapter<UserAdapter.ViewHolder> {
 private Context context;
 private List<User>userList;
 
+
     public UserAdapter(Context context, List<User> userList) {
         this.context = context;
         this.userList = userList;
+       // this.userListFilter = userList;
     }
 
     @NonNull
@@ -62,6 +67,8 @@ private List<User>userList;
     public int getItemCount() {
         return userList.size();
     }
+
+
 
     public  class ViewHolder extends RecyclerView.ViewHolder{
 

@@ -108,9 +108,9 @@ public class CatagorySelectedActivity extends AppCompatActivity {
                         if (userList.isEmpty()){
 
                             new AlertDialog.Builder(CatagorySelectedActivity.this)
-                                    .setTitle("Not Found!")
-                                    .setMessage("No register yet")
-                                    .setPositiveButton("ok", null)
+                                    .setTitle(R.string.notfound)
+                                    .setMessage(R.string.noregisteryet)
+                                    .setPositiveButton(R.string.ok, null)
                                     .show();
 
 

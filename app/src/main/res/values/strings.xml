@@ -69,6 +69,13 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="signout">SignOut</string>
 
+    /////dialog
+    <string name="notfound">Not Found!</string>
+    <string name="noregisteryet">No Register Yet</string>
+    <string name="ok">Ok</string>
+
+    <string name="ambulance">Ambulance</string>
+    <string name="bloodbank">Blood Bank</string>
 
 
     <string name="communications">Communications</string>

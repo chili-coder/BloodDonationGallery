@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".BloodBankActivity">
+    tools:context=".AmbulanceActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_bank"
+        android:id="@+id/toolbar_ambulance"
         android:elevation="4dp"
         app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
@@ -17,11 +17,10 @@
         android:background="@color/purple_700"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bloodBankRecy"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/ambulanceRecycler"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
