@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
+    android:background="@drawable/ccverr"
     tools:context=".SplashScreenActivity">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/biconw" />
+        app:srcCompat="@drawable/bdgicon" />
 
     <TextView
         android:id="@+id/sohaghlab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/poppins"
         android:text="Sohagh Lab"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:text="Develop By"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="10dp"
         app:layout_constraintBottom_toTopOf="@+id/sohaghlab"
         app:layout_constraintEnd_toEndOf="parent"

@@ -18,6 +18,9 @@
         app:cardElevation="10dp"
         android:layout_height="wrap_content">
 
+
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_margin="5dp"
@@ -132,7 +135,8 @@
                 android:id="@+id/callNowRecy"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="30dp"
+                android:clickable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/emailNowRecy"
                 app:srcCompat="@drawable/call" />
@@ -141,7 +145,7 @@
                 android:id="@+id/emailNowRecy"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/callNowRecy"
@@ -171,28 +175,43 @@
                 android:id="@+id/donateDateFix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
                 android:text="@string/lastdonation"
-
-
-                app:layout_constraintEnd_toEndOf="@+id/profileImageRecy"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintStart_toStartOf="@+id/profileImageRecy"
+                app:layout_constraintTop_toBottomOf="@+id/statusId_card" />
 
             <TextView
                 android:id="@+id/lastDonationRecy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins"
                 android:text="00/00/0000"
                 android:textColor="@color/purple_700"
-                app:layout_constraintEnd_toEndOf="@+id/donateDateFix"
-                app:layout_constraintStart_toStartOf="@+id/donateDateFix"
-                app:layout_constraintTop_toBottomOf="@+id/donateDateFix" />
+                app:layout_constraintStart_toEndOf="@+id/donateDateFix"
+                app:layout_constraintTop_toTopOf="@+id/donateDateFix" />
+
+            <TextView
+                android:id="@+id/statusId_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/green"
+                android:fontFamily="@font/poppins"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Inactive"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/profileImageRecy"
+                app:layout_constraintStart_toStartOf="@+id/profileImageRecy"
+                app:layout_constraintTop_toBottomOf="@+id/profileImageRecy" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     </androidx.cardview.widget.CardView>
@@ -201,4 +220,5 @@
 
 
 
-</LinearLayout>
+
+    </LinearLayout>

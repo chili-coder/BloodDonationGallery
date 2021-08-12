@@ -6,7 +6,7 @@
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
     android:id="@+id/drawerlayout"
-   android:background="@drawable/cardback"
+    android:background="@drawable/bloodback"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 

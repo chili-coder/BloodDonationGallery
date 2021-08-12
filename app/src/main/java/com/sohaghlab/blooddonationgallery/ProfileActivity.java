@@ -7,17 +7,10 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,9 +24,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.sohaghlab.blooddonationgallery.Model.User;
-
-import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -49,6 +39,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView sendEmailVerify,verified;
     TextView lastBloodDonation,clickToUpdateDate;
+    TextView status;
+    TextView setdatetitle;
+
 
 
 
@@ -56,8 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference userDataRef;
     public Toolbar toolbar;
     private static final  String TAG="ProfileActivity";
-    private  DatePickerDialog.OnDateSetListener onDateSetListener;
-
 
 
     @SuppressLint("ResourceAsColor")
@@ -65,6 +56,12 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        toolbar =findViewById(R.id.toolbar_profile);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle(R.string.profile);
 
 
 
@@ -86,8 +83,10 @@ public class ProfileActivity extends AppCompatActivity {
         cityPro=findViewById(R.id.cityPro);
         bloodGroupPro=findViewById(R.id.bloodPro);
         verified=findViewById(R.id.verified);
-        clickToUpdateDate=findViewById(R.id.clicktoupdatedate);
+        clickToUpdateDate=findViewById(R.id.setDateTitle);
         lastBloodDonation=findViewById(R.id.lastDonationDatePro);
+        status=findViewById(R.id.donatePro);
+        setdatetitle=findViewById(R.id.setDateTitle);
 
         dateDonteLayout=findViewById(R.id.BloodDonationDateLayout);
 
@@ -182,6 +181,8 @@ public class ProfileActivity extends AppCompatActivity {
                         agePro.setText(snapshot.child("age").getValue().toString());
                         cityPro.setText(snapshot.child("city").getValue().toString());
                         userIdPro.setText(snapshot.child("userid").getValue().toString());
+                        status.setText(snapshot.child("status").getValue().toString());
+                        setdatetitle.setText(snapshot.child("datetitle").getValue().toString());
 
 
                           lastBloodDonation.setText(snapshot.child("lastdonation").getValue().toString());
@@ -191,7 +192,12 @@ public class ProfileActivity extends AppCompatActivity {
                         bloodGroupPro.setText(snapshot.child("bloodgroup").getValue().toString());
 
 
-                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
+                        if (snapshot.hasChild("profileimageurl")){
+                            Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
+
+                        } else {
+                            profileImage.setImageResource(R.drawable.user);
+                        }
 
 
 
@@ -217,20 +223,29 @@ public class ProfileActivity extends AppCompatActivity {
                         agePro.setText(snapshot.child("age").getValue().toString());
                         cityPro.setText(snapshot.child("city").getValue().toString());
                         userIdPro.setText(snapshot.child("userid").getValue().toString());
+                        status.setText(snapshot.child("status").getValue().toString());
+                        setdatetitle.setText(snapshot.child("datetitle").getValue().toString());
 
 
 
 
-                       // lastBloodDonation.setText(snapshot.child("lastdonation").getValue().toString());
+
+                        lastBloodDonation.setText(snapshot.child("lastdonation").getValue().toString());
 
 
 
                         bloodGroupPro.setText(snapshot.child("bloodgroup").getValue().toString());
 
 
-                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
+                        if (snapshot.hasChild("profileimageurl")){
+                            Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(profileImage);
 
-                        dateDonteLayout.setVisibility(View.GONE);
+                        }else{
+                            profileImage.setImageResource(R.drawable.user);
+
+                        }
+
+
 
                         editProfile.setOnClickListener(new View.OnClickListener() {
                             @Override

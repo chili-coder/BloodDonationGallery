@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,13 +44,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UserReciUpdateActivity extends AppCompatActivity {
 
     private CircleImageView updateImage;
-    private EditText nameUpdate,phoneUpdate,cityUpdate,userIdUpdate,ageUpdate;
+    private EditText nameUpdate,phoneUpdate,cityUpdate,userIdUpdate,ageUpdate,needDate;
     private Button updateBtn;
     private Uri resultUri;
 
     private FirebaseAuth mAuth;
     private DatabaseReference userDataRef;
     private TextView backtoprofile;
+    private Spinner status_spnner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,8 @@ public class UserReciUpdateActivity extends AppCompatActivity {
         phoneUpdate=findViewById(R.id.update_phone);
         cityUpdate=findViewById(R.id.update_city);
         userIdUpdate=findViewById(R.id.update_nid);
+        status_spnner=findViewById(R.id.status_spnner);
+        needDate=findViewById(R.id.update_need_date);
 
         updateBtn=findViewById(R.id.update_btn);
 
@@ -105,14 +109,21 @@ public class UserReciUpdateActivity extends AppCompatActivity {
                     ageUpdate.setText(snapshot.child("age").getValue().toString());
                     cityUpdate.setText(snapshot.child("city").getValue().toString());
                     userIdUpdate.setText(snapshot.child("userid").getValue().toString());
+                    needDate.setText(snapshot.child("lastdonation").getValue().toString());
+
+
+                    if (snapshot.hasChild("profileimageurl")){
+
+                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl")
+                                .getValue().toString()).into(updateImage);
+
+                    } else {
+                        updateImage.setImageResource(R.drawable.user);
+                    }
 
 
 
 
-
-
-                    Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl")
-                            .getValue().toString()).into(updateImage);
 
                 }
             }
@@ -133,6 +144,8 @@ public class UserReciUpdateActivity extends AppCompatActivity {
                 final String city = cityUpdate.getText().toString().trim();
                 final String phone = phoneUpdate.getText().toString().trim();
                 final String age = ageUpdate.getText().toString().trim();
+                final String status = status_spnner.getSelectedItem().toString();
+                final String lastdonation = needDate.getText().toString().trim();
 
 
 
@@ -156,6 +169,9 @@ public class UserReciUpdateActivity extends AppCompatActivity {
                             userInfo.put("phone",phone);
                             userInfo.put("userid",userId);
                             userInfo.put("age",age);
+                            userInfo.put("status",status);
+                            userInfo.put("lastdonation",lastdonation);
+
 
 
 

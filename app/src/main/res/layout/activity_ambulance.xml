@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bloodback"
     android:layout_height="match_parent"
     tools:context=".AmbulanceActivity">
 
@@ -16,11 +17,26 @@
         android:layout_height="wrap_content"
         android:background="@color/purple_700"/>
 
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressAmbulance"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:progressBackgroundTint="@color/white"
+            android:layout_height="wrap_content">
+
+        </ProgressBar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/ambulanceRecycler"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

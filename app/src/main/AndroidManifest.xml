@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sohaghlab.blooddonationgallery">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -13,17 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodDonationGallery">
-        <activity android:name=".AmbulanceActivity"  android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".DeshboardActivity"></activity>
+        <activity android:name=".AmbulanceActivity" />
         <activity android:name=".UserReciUpdateActivity" />
-        <activity android:name=".BloodBankActivity"  android:parentActivityName=".MainActivity" />
+        <activity android:name=".BloodBankActivity" />
         <activity android:name=".UserDataUpdateActivity" />
-        <activity
-            android:name=".CatagorySelectedActivity"
-            android:parentActivityName=".MainActivity" />
+        <activity android:name=".CatagorySelectedActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity
-            android:name=".PersonActivity"
-            android:parentActivityName=".MainActivity" />
+        <activity android:name=".PersonActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RecipientActivity" />
         <activity android:name=".DonnerRegiActivity" />

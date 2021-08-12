@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="20dp"
-            android:background="@drawable/back">
+            android:background="@drawable/bloodback">
 
 
             <androidx.cardview.widget.CardView
@@ -72,7 +72,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="30dp"
                         android:gravity="center"
-
                         android:id="@+id/Dooner_bloodgroupspnner"
                         android:layout_marginLeft="30dp"
                         android:entries="@array/blood_group"

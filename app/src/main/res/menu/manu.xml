@@ -6,26 +6,20 @@
     android:id="@+id/home"
     android:icon="@drawable/ic_home"
     android:title="Home"/>
-
-
     <item
-        android:id="@+id/profile"
+        android:id="@+id/emailme"
         android:icon="@drawable/ic_person"
-        android:title="@string/profile"/>
+        android:title="@string/noverify"/>
 
     <item
-        android:id="@+id/bloodBankManu"
-        android:icon="@drawable/ic_person"
-        android:title="@string/bloodbank"/>
+        android:id="@+id/deshboard"
+        android:icon="@drawable/ic_deshboard"
+        android:title="@string/deshboard"/>
 
-    <item
-        android:id="@+id/ambulance"
-        android:icon="@drawable/ic_person"
-        android:title="@string/ambulance"/>
-    <item
-        android:id="@+id/info"
-        android:icon="@drawable/ic_blood"
-        android:title="@string/info"/>
+
+
+
+
 
 
 
@@ -82,13 +76,13 @@
 
                 <item
                     android:id="@+id/changelanguage"
-                    android:icon="@color/purple_700"
+                    android:icon="@drawable/ic_language"
                     android:title="@string/english"/>
 
 
                 <item
                     android:id="@+id/logout"
-                    android:icon="@color/purple_700"
+                    android:icon="@drawable/ic_logout"
                     android:title="@string/logout"/>
 
             </group>

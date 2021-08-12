@@ -2,11 +2,14 @@ package com.sohaghlab.blooddonationgallery.Model;
 
 public class User {
     String name,phone,email,city,bloodgroup,profileimageurl,type,search,id,userId,age,lastdonation;
+    String status,datetitle;
 
     public User() {
     }
 
-    public User(String name, String phone, String email, String city, String bloodgroup, String profileimageurl, String type, String search, String id, String userId, String age, String lastdonation) {
+    public User(String name, String phone, String email, String city, String bloodgroup, String profileimageurl,
+                String type, String search, String id, String userId, String age,
+                String lastdonation,String status, String datetitle) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -19,6 +22,24 @@ public class User {
         this.userId = userId;
         this.age = age;
         this.lastdonation = lastdonation;
+        this.status = status;
+        this.datetitle = datetitle;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDatetitle() {
+        return datetitle;
+    }
+
+    public void setDatetitle(String datetitle) {
+        this.datetitle = datetitle;
     }
 
     public String getName() {

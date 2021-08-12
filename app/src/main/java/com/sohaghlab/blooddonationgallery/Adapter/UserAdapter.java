@@ -1,6 +1,8 @@
 package com.sohaghlab.blooddonationgallery.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,8 +60,27 @@ private List<User>userList;
         holder.bloodRecy.setText(user.getBloodgroup());
         holder.cityRecy.setText(user.getCity());
         holder.lastDonationRecy.setText(user.getLastdonation());
+        holder.statusRecy.setText(user.getStatus());
+        holder.dateTitleRecy.setText(user.getDatetitle());
 
         Glide.with(context).load(user.getProfileimageurl()).into(holder.profileImageRecy);
+
+        holder.callNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String phoneNo = user.getPhone();
+                String callnow ="tel:"+phoneNo.trim();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse(callnow));
+                context.startActivity(intent);
+
+
+
+
+
+            }
+        });
 
 
     }
@@ -74,7 +96,9 @@ private List<User>userList;
 
         public CircleImageView profileImageRecy;
         TextView nameRecy,phoneRecy,cityRecy,ageRecy,lastDonationRecy,bloodRecy,typeRecy;
-        ImageView callNowRecy,emailNowRecy;
+        ImageView callNow,emailNowRecy;
+        TextView statusRecy,dateTitleRecy;
+
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -88,8 +112,10 @@ private List<User>userList;
             typeRecy=itemView.findViewById(R.id.typeRecy);
             lastDonationRecy=itemView.findViewById(R.id.lastDonationRecy);
             ageRecy=itemView.findViewById(R.id.ageRecy);
+            statusRecy=itemView.findViewById(R.id.statusId_card);
+            dateTitleRecy=itemView.findViewById(R.id.donateDateFix);
 
-            callNowRecy=itemView.findViewById(R.id.callNowRecy);
+            callNow=itemView.findViewById(R.id.callNowRecy);
             emailNowRecy=itemView.findViewById(R.id.emailNowRecy);
         }
     }

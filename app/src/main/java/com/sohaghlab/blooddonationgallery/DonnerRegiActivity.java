@@ -52,6 +52,8 @@ public class DonnerRegiActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference userDataRef;
+    private TextView active;
+    private TextView donated;
 
 
 
@@ -72,6 +74,7 @@ public class DonnerRegiActivity extends AppCompatActivity {
         signUpButton=findViewById(R.id.donner_regi_btn);
         signUpAge=findViewById(R.id.donner_age_regi);
        loaderDiaglog=new ProgressDialog(this);
+
 
 
        mAuth=FirebaseAuth.getInstance();
@@ -169,7 +172,9 @@ public class DonnerRegiActivity extends AppCompatActivity {
                                 userInfo.put("email",email);
                                 userInfo.put("password",password);
                                 userInfo.put("type","Donor");
-                                userInfo.put("lastdonation","Null");
+                                userInfo.put("datetitle","Donated");
+                                userInfo.put("status","Inactive");
+                                userInfo.put("lastdonation","None");
                                 userInfo.put("search","Donor"+bloodGroup);
 
                                 userDataRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {

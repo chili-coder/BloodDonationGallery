@@ -14,6 +14,7 @@
     <string name="username">User Name</string>
     <string name="password">Password</string>
     <string name="usercreact">User Correct Email and Password </string>
+    <string name="deshboard">Dashboard</string>
 
 
     <string name="navigation_draw_open">Open navigation drawer</string>
@@ -48,6 +49,12 @@
         <item>AB-</item>
     </string-array>
 
+    <string-array name="status_group">
+        <item>Inactive</item>
+        <item>Active</item>
+    </string-array>
+
+
     <string name="bloodgroup_manu"> Blood Group</string>
     <string name="A_positive_manu"> A+ (Positive)</string>
     <string name="A_nagative_manu"> A- (Negative)</string>
@@ -77,6 +84,11 @@
     <string name="ambulance">Ambulance</string>
     <string name="bloodbank">Blood Bank</string>
 
+    <string name="ofline">Offline</string>
+    <string name="youareofline">You are offline</string>
+    <string name="gobackonline">Go back online to use</string>
+    <string name="retry">Retry</string>
+
 
     <string name="communications">Communications</string>
     <string name="about">About</string>
@@ -98,7 +110,12 @@
     <string name="genderp">Gender: </string>
     <string name="agep">Age: </string>
     <string name="lastdatedonation">Update blood group: </string>
-    <string name="lastdonation">Last Donation</string>
+    <string name="lastdonation">Donated</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
+    <string name="needp">Need: </string>
+    <string name="donatep">Donated: </string>
+
 
     //updateprofile
 
@@ -107,6 +124,8 @@
     <string name="update">Update</string>
     <string name="backtoprofile">Back to Home</string>
     <string name="info">Blood Info</string>
+    <string name="needdate">Need Date</string>
+    <string name="nearwithme">Near With Me</string>
 
 
     ///email verification
@@ -167,6 +186,13 @@
     <string name="crwB">B+, B-, O+, O-</string>
     <string name="crwB1">B-, O-</string>
     <string name="crwAB1">AB-, A-, B-,O-</string>
+
+    ////exit dilog
+
+    <string name="exit_msg">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
 
 
 </resources>

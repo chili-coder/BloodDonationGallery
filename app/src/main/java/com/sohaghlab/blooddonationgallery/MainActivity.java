@@ -2,6 +2,7 @@ package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -10,11 +11,17 @@ import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
@@ -23,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +39,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.sohaghlab.blooddonationgallery.Adapter.AmbulanceAdapter;
 import com.sohaghlab.blooddonationgallery.Adapter.UserAdapter;
+import com.sohaghlab.blooddonationgallery.Model.AmbulanceModel;
 import com.sohaghlab.blooddonationgallery.Model.User;
 
 import java.util.ArrayList;
@@ -53,6 +63,7 @@ public class MainActivity extends AppCompatActivity
   private UserAdapter userAdapter;
   private ProgressBar progressBar;
   private RecyclerView recyclerView;
+    private String title ="";
 
   private  FirebaseAuth mFirebaseAuth;
 
@@ -87,6 +98,10 @@ public class MainActivity extends AppCompatActivity
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+
+
+
 
 
 
@@ -163,8 +178,11 @@ public class MainActivity extends AppCompatActivity
 
                     if (snapshot.hasChild("profileimageurl")){
 
-                        String imageUrl =snapshot.child("profileimageurl").getValue().toString();
-                        Glide.with(getApplicationContext()).load(imageUrl).into(navProfile);
+                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl").getValue().toString()).into(navProfile);
+
+
+                     //   String imageUrl =snapshot.child("profileimageurl").getValue().toString();
+                       // Glide.with(getApplicationContext()).load(imageUrl).into(navProfile);
 
                     } else {
                         navProfile.setImageResource(R.drawable.user);
@@ -181,6 +199,36 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+
+
+        ///no internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+
+        if (networkInfo == null || !networkInfo.isConnected()|| !networkInfo.isAvailable()){
+
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.no_internet_item);
+            dialog.setCancelable(false);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().getAttributes().windowAnimations =
+                    android.R.style.Animation_Dialog;
+
+            Button retry = dialog.findViewById(R.id.retry);
+
+            retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recreate();
+                }
+            });
+            dialog.show();
+
+        } else {
+
+        } //end retry
 
 
 
@@ -259,28 +307,16 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case
-                    R.id.profile:
-                     Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
-                     startActivity(intent);
-                     break;
+
 
             case
-                    R.id.info:
-                Intent info = new Intent(MainActivity.this,PersonActivity.class);
-                startActivity(info);
+                    R.id.deshboard:
+                Intent desh = new Intent(MainActivity.this,DeshboardActivity.class);
+                startActivity(desh);
                 break;
 
-            case
-                    R.id.bloodBankManu:
-                Intent bank = new Intent(MainActivity.this,BloodBankActivity.class);
-                startActivity(bank);
-                break;
-            case
-                    R.id.ambulance:
-                Intent ambulance = new Intent(MainActivity.this,AmbulanceActivity.class);
-                startActivity(ambulance);
-                break;
+
+
 
 
 
@@ -349,7 +385,35 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu2) {
         getMenuInflater().inflate(R.menu.manu2,menu2);
-        return true;
+
+
+        MenuItem item =menu2.findItem(R.id.serch_manu2);
+
+        SearchView searchView = (SearchView)item.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+
+                process_search(query);
+
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+
+                process_search(query);
+
+                return false;
+            }
+        });
+
+
+        return super.onCreateOptionsMenu(menu2);
+
     }
 
     @Override
@@ -371,6 +435,7 @@ public class MainActivity extends AppCompatActivity
                     R.id.serch_manu2:
 
 
+
                          break;
 
 
@@ -382,4 +447,60 @@ public class MainActivity extends AppCompatActivity
 
         return true;
     }
+
+
+    private void process_search(String query) {
+
+
+
+
+        userList = new ArrayList<>();
+        userAdapter = new UserAdapter(MainActivity.this,userList);
+        recyclerView.setAdapter(userAdapter);
+
+
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+
+        String searchtext = query.toLowerCase();
+        FirebaseRecyclerOptions<AmbulanceModel> options =
+                new FirebaseRecyclerOptions.Builder<AmbulanceModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("ambulances").orderByChild("location").startAt(searchtext).endAt(searchtext + "\uf8ff"), AmbulanceModel.class)
+                        .build();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_name)
+                .setMessage(R.string.exit_msg)
+                .setCancelable(false)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                       MainActivity.super.onBackPressed();
+                    }
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
+    }
+
+
+
 }

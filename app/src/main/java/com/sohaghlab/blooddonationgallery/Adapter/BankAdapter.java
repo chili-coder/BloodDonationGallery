@@ -9,55 +9,59 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.sohaghlab.blooddonationgallery.Model.AmbulanceModel;
 import com.sohaghlab.blooddonationgallery.Model.Bank;
 import com.sohaghlab.blooddonationgallery.R;
 
 import java.util.List;
 
-public class BankAdapter extends RecyclerView.Adapter {
+public class BankAdapter extends FirebaseRecyclerAdapter<Bank,BankAdapter.bankviewholder> {
 
-    List<Bank> bank;
-    Context context;
 
-    public BankAdapter(List<Bank> bank) {
-        this.bank=bank;
+    public BankAdapter(@NonNull FirebaseRecyclerOptions<Bank> options) {
+        super(options);
+    }
+
+
+
+    @Override
+    protected void onBindViewHolder(@NonNull BankAdapter.bankviewholder holder, int position, @NonNull Bank model) {
+
+        holder.nameText.setText(model.getBankname());
+        holder.bankcityText.setText(model.getBankcity());
+        holder.phonetext.setText(model.getBankphone());
+        holder.locationText.setText(model.getBanklocation());
+
 
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.blood_bank_item,parent,false);
-        ViewHolderClass viewHolderClass=new ViewHolderClass(view);
-        return viewHolderClass;
-
+    public BankAdapter.bankviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.blood_bank_item,parent,false);
+        return new BankAdapter.bankviewholder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    class bankviewholder extends RecyclerView.ViewHolder{
 
-        ViewHolderClass viewHolderClass=(ViewHolderClass)holder;
-        final Bank bankList=bank.get(position);
-        viewHolderClass.nameText.setText(bankList.getBankname());
-        viewHolderClass.phonetext.setText(bankList.getBankphone());
-        viewHolderClass.locationText.setText(bankList.getBanklocation());
-    }
 
-    @Override
-    public int getItemCount() {
-        return bank.size();
-    }
+        TextView nameText,phonetext,locationText, bankcityText;
 
-    public class ViewHolderClass extends RecyclerView.ViewHolder
-    {
-        TextView nameText,phonetext,locationText;
-        public ViewHolderClass(@NonNull View itemView) {
+        public bankviewholder(@NonNull View itemView) {
+
             super(itemView);
+
+
             nameText=itemView.findViewById(R.id.nameBank);
-           phonetext=itemView.findViewById(R.id.phoneBank);
+            phonetext=itemView.findViewById(R.id.phoneBank);
             locationText=itemView.findViewById(R.id.locationBank);
+            bankcityText=itemView.findViewById(R.id.cityBank);
+
 
         }
     }
+
+
 }

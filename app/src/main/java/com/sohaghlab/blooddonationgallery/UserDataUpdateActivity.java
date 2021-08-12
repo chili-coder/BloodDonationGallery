@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +53,7 @@ public class UserDataUpdateActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference userDataRef;
     private TextView backtoprofile;
+    private Spinner status_spnner;
 
 
     @Override
@@ -67,6 +69,7 @@ public class UserDataUpdateActivity extends AppCompatActivity {
         userIdUpdate=findViewById(R.id.update_nid);
         lastDoneteUpdate=findViewById(R.id.update_last_donete_date);
         updateBtn=findViewById(R.id.update_btn);
+        status_spnner=findViewById(R.id.status_spnner);
 
 
 
@@ -134,9 +137,16 @@ public class UserDataUpdateActivity extends AppCompatActivity {
 
 
 
+                    if (snapshot.hasChild("profileimageurl")){
 
-                    Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl")
-                            .getValue().toString()).into(updateImage);
+                        Glide.with(getApplicationContext()).load(snapshot.child("profileimageurl")
+                                .getValue().toString()).into(updateImage);
+
+                    } else {
+                        updateImage.setImageResource(R.drawable.user);
+                    }
+
+
 
                 }
             }
@@ -158,6 +168,9 @@ public class UserDataUpdateActivity extends AppCompatActivity {
                 final String phone = phoneUpdate.getText().toString().trim();
                 final String age = ageUpdate.getText().toString().trim();
                 final String lastdonation = lastDoneteUpdate.getText().toString().trim();
+                final String status = status_spnner.getSelectedItem().toString();
+
+
 
 
                 String currentUserId = mAuth.getCurrentUser().getUid();
@@ -181,6 +194,7 @@ public class UserDataUpdateActivity extends AppCompatActivity {
                           userInfo.put("userid",userId);
                           userInfo.put("age",age);
                           userInfo.put("lastdonation",lastdonation);
+                          userInfo.put("status",status);
 
 
 

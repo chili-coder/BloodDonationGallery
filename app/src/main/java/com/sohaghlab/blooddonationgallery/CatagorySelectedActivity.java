@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -57,13 +58,99 @@ public class CatagorySelectedActivity extends AppCompatActivity {
         recyclerView.setAdapter(userAdapter);
 
         if (getIntent().getExtras() !=null){
+
             title=getIntent().getStringExtra("group");
             getSupportActionBar().setTitle("Blood Group "+title);
 
-            readUsers();
+
+
+            if (title.equals("Near With Me")){
+                getNearWithMe();
+                getSupportActionBar().setTitle("Near With Me");
+              //  progressBar.setVisibility(View.GONE);
+
+            }else {
+                readUsers();
+
+            }
+
 
         }
 
+
+
+
+    }
+
+    private void getNearWithMe() {
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String result;
+                String type = snapshot.child("type").getValue().toString();
+                if (type.equals("Donor")){
+
+                    result ="Recipient";
+
+                } else {
+                    result="Donor";
+
+                }
+
+                String city=snapshot.child("city").getValue().toString();
+                String blooDgroup=snapshot.child("bloodgroup").getValue().toString();
+
+                DatabaseReference reference1 =FirebaseDatabase.getInstance().getReference()
+                        .child("users");
+                Query query = reference1.orderByChild("search").equalTo(result+blooDgroup+city);
+
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        userList.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            User user =dataSnapshot.getValue(User.class);
+                            userList.add(user);
+                            progressBar.setVisibility(View.GONE);
+                        }
+                        userAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.GONE);
+
+                        if (userList.isEmpty()){
+
+                            new AlertDialog.Builder(CatagorySelectedActivity.this)
+                                    .setTitle(R.string.notfound)
+                                    .setMessage(R.string.noregisteryet)
+                                    .setPositiveButton(R.string.ok, null)
+                                    .show();
+
+
+
+                            progressBar.setVisibility(View.GONE);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
@@ -134,6 +221,25 @@ public class CatagorySelectedActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+
+        }
+
+
 
     }
 }

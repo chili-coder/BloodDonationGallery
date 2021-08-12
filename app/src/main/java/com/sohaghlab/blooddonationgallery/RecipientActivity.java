@@ -168,6 +168,9 @@ public class RecipientActivity extends AppCompatActivity {
                                 userInfo.put("email",email);
                                 userInfo.put("password",password);
                                 userInfo.put("type","Recipient");
+                                userInfo.put("datetitle","Need");
+                                userInfo.put("lastdonation","None");
+                                userInfo.put("status","Inactive");
                                 userInfo.put("search","Recipient"+bloodGroup);
 
                                 userDataRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {

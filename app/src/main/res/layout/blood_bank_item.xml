@@ -48,7 +48,7 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/ic_person"
+                android:src="@drawable/bloodbank"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
@@ -80,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 app:layout_constraintStart_toEndOf="@+id/profileImageRecy"
                 app:layout_constraintTop_toBottomOf="@+id/nameBank"
                 app:srcCompat="@drawable/ic_call" />
@@ -100,10 +100,10 @@
                 android:id="@+id/imageView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
 
-                app:layout_constraintStart_toStartOf="@+id/imageView6"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
                 app:srcCompat="@drawable/ic_location" />
 
             <TextView
@@ -117,6 +117,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                 app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                app:srcCompat="@drawable/ic_location_city" />
+
+            <TextView
+                android:id="@+id/cityBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/city"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

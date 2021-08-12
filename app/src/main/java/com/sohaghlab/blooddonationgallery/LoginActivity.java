@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
 
-                                Toast.makeText(LoginActivity.this, "SignIn Successfully", Toast.LENGTH_SHORT).show();
+                               /// Toast.makeText(LoginActivity.this, "SignIn Successfully", Toast.LENGTH_SHORT).show();
                             } else {
                                 new AlertDialog.Builder(LoginActivity.this)
                                         .setTitle("SignIn Error!")
@@ -147,6 +147,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         mAuth.addAuthStateListener(authStateListener);
     }
 

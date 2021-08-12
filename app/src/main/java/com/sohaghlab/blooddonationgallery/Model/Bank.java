@@ -4,16 +4,26 @@ public class Bank {
     String bankname;
     String bankphone;
     String banklocation;
+    String bankcity;
 
 
     public Bank() {
     }
 
 
-    public Bank(String bankname, String bankphone, String banklocation) {
+    public Bank(String bankname, String bankphone, String banklocation, String bankcity) {
         this.bankname = bankname;
         this.bankphone = bankphone;
         this.banklocation = banklocation;
+        this.bankcity= bankcity;
+    }
+
+    public String getBankcity() {
+        return bankcity;
+    }
+
+    public void setBankcity(String bankcity) {
+        this.bankcity = bankcity;
     }
 
     public String getBankname() {
