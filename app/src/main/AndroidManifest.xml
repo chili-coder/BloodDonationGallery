@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodDonationGallery">
-        <activity android:name=".DeshboardActivity"></activity>
+        <activity android:name=".CampainDeshActivity"></activity>
+        <activity android:name=".CampaignActivity" />
+        <activity android:name=".DeshboardActivity" />
         <activity android:name=".AmbulanceActivity" />
         <activity android:name=".UserReciUpdateActivity" />
         <activity android:name=".BloodBankActivity" />

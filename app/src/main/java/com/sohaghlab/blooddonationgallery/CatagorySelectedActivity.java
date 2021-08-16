@@ -36,6 +36,7 @@ public class CatagorySelectedActivity extends AppCompatActivity {
     private UserAdapter userAdapter;
     private ProgressBar progressBar;
     private String title ="";
+    private String text="Active";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,16 +58,16 @@ public class CatagorySelectedActivity extends AppCompatActivity {
         userAdapter = new UserAdapter(CatagorySelectedActivity.this,userList);
         recyclerView.setAdapter(userAdapter);
 
-        if (getIntent().getExtras() !=null){
+       if (getIntent().getExtras() !=null){
 
             title=getIntent().getStringExtra("group");
             getSupportActionBar().setTitle("Blood Group "+title);
 
 
 
-            if (title.equals("Near With Me")){
+            if (title.equals("My Type")){
                 getNearWithMe();
-                getSupportActionBar().setTitle("Near With Me");
+                getSupportActionBar().setTitle("My Type");
               //  progressBar.setVisibility(View.GONE);
 
             }else {
@@ -80,7 +81,18 @@ public class CatagorySelectedActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
     }
+
+
+
+
 
     private void getNearWithMe() {
 
@@ -102,12 +114,12 @@ public class CatagorySelectedActivity extends AppCompatActivity {
 
                 }
 
-                String city=snapshot.child("city").getValue().toString();
+                String citY=snapshot.child("city").getValue().toString();
                 String blooDgroup=snapshot.child("bloodgroup").getValue().toString();
 
                 DatabaseReference reference1 =FirebaseDatabase.getInstance().getReference()
                         .child("users");
-                Query query = reference1.orderByChild("search").equalTo(result+blooDgroup+city);
+                Query query = reference1.orderByChild("search").equalTo(result+blooDgroup);
 
 
                 query.addValueEventListener(new ValueEventListener() {

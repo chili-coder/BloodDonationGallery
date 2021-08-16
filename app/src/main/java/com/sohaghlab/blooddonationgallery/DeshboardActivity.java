@@ -24,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DeshboardActivity extends AppCompatActivity {
 
-    ConstraintLayout actvie,ambulance,bloodbank,info,profile,nearwithme;
+    ConstraintLayout actvieCard,ambulance,bloodbank,info,profile,nearwithme;
 
 
     ImageView arrowBnt,logoutBtn;
@@ -41,7 +41,7 @@ public class DeshboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deshboard);
 
-       actvie=findViewById(R.id.avcive_card);
+       actvieCard=findViewById(R.id.avcive_card);
         ambulance=findViewById(R.id.ambulance_card);
         bloodbank=findViewById(R.id.bloodbank_card);
         info=findViewById(R.id.bloodinfo_card);
@@ -147,11 +147,24 @@ public class DeshboardActivity extends AppCompatActivity {
             }
         });
 
+        actvieCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(DeshboardActivity.this,CampaignActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
+
 
         nearwithme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(DeshboardActivity.this,CatagorySelectedActivity.class);
+                intent.putExtra("group","My Type");
                 startActivity(intent);
             }
         });

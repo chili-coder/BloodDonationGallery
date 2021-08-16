@@ -41,7 +41,7 @@ public class BankAdapter extends FirebaseRecyclerAdapter<Bank,BankAdapter.bankvi
     @Override
     public BankAdapter.bankviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.blood_bank_item,parent,false);
-        return new BankAdapter.bankviewholder(view);
+        return new bankviewholder(view);
     }
 
     class bankviewholder extends RecyclerView.ViewHolder{

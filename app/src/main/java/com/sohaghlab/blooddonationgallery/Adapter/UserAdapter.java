@@ -6,8 +6,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.sohaghlab.blooddonationgallery.Model.User;
 import com.sohaghlab.blooddonationgallery.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -82,6 +79,33 @@ private List<User>userList;
             }
         });
 
+        holder.shareNowRecy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String NamE=user.getName();
+                String PhonE=user.getPhone();
+                String bloogGroup=user.getBloodgroup();
+                String status=user.getStatus();
+                String ciTy=user.getCity();
+                String tyPe=user.getType();
+
+
+
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Assalaamualaikum wa rahmatullaah"+"."+ "Myself" +NamE +"." + "I am from "+ciTy+"."
+               + " My blood group " + bloogGroup +"."+" I am a "+tyPe +" My BDG status " +status +"\nPlease contract  \n"+PhonE+" Allah bless you" );
+                sendIntent.setType("text/plain");
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                context.startActivity(shareIntent);
+
+
+
+
+            }
+        });
+
 
     }
 
@@ -96,7 +120,7 @@ private List<User>userList;
 
         public CircleImageView profileImageRecy;
         TextView nameRecy,phoneRecy,cityRecy,ageRecy,lastDonationRecy,bloodRecy,typeRecy;
-        ImageView callNow,emailNowRecy;
+        ImageView callNow,shareNowRecy;
         TextView statusRecy,dateTitleRecy;
 
 
@@ -116,7 +140,7 @@ private List<User>userList;
             dateTitleRecy=itemView.findViewById(R.id.donateDateFix);
 
             callNow=itemView.findViewById(R.id.callNowRecy);
-            emailNowRecy=itemView.findViewById(R.id.emailNowRecy);
+            shareNowRecy=itemView.findViewById(R.id.shareNowRecy);
         }
     }
 }

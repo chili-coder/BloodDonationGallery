@@ -1,7 +1,6 @@
 package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,77 +12,69 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.sohaghlab.blooddonationgallery.Adapter.AmbulanceAdapter;
 import com.sohaghlab.blooddonationgallery.Adapter.BankAdapter;
+import com.sohaghlab.blooddonationgallery.Adapter.CampainAdapter;
 import com.sohaghlab.blooddonationgallery.Model.AmbulanceModel;
 import com.sohaghlab.blooddonationgallery.Model.Bank;
+import com.sohaghlab.blooddonationgallery.Model.Campaign;
 
-import java.util.ArrayList;
-import java.util.List;
+public class CampaignActivity extends AppCompatActivity {
 
-public class BloodBankActivity extends AppCompatActivity {
-
-    RecyclerView recyclerView;
-    BankAdapter adapterbank;
+    RecyclerView camRecyclerView;
+    ProgressBar progressBar;
     public Toolbar toolbar;
-    private ProgressBar progressBank;
-
+    CampainAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blood_bank);
+        setContentView(R.layout.activity_campaign);
 
-        toolbar =findViewById(R.id.toolbar_bank);
+
+        toolbar = findViewById(R.id.toolbar_ambulance);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle(R.string.bloodbank);
-        progressBank=findViewById(R.id.progressBank);
-
-        recyclerView=findViewById(R.id.bloodBankRecy);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        getSupportActionBar().setTitle(R.string.campaign);
+        progressBar = findViewById(R.id.progressAmbulance);
 
 
+        camRecyclerView=findViewById(R.id.campaignRecyclerView);
+        camRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        progressBar=findViewById(R.id.progressCam);
 
-        FirebaseRecyclerOptions<Bank> options =
-                new FirebaseRecyclerOptions.Builder<Bank>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("banks"), Bank.class)
+
+        FirebaseRecyclerOptions<Campaign> options =
+                new FirebaseRecyclerOptions.Builder<Campaign>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("campaigns"), Campaign.class)
                         .build();
 
 
-        adapterbank = new BankAdapter(options);
-        recyclerView.setAdapter(adapterbank);
+        adapter = new CampainAdapter(options);
+        camRecyclerView.setAdapter(adapter);
+
+
 
 
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
-        adapterbank.startListening();
-        progressBank.setVisibility(View.GONE);
+        adapter.startListening();
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        adapterbank.stopListening();
+        adapter.stopListening();
     }
-
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menubank) {
@@ -122,15 +113,13 @@ public class BloodBankActivity extends AppCompatActivity {
 
         String searchtext = querybank.toLowerCase();
 
-        FirebaseRecyclerOptions<Bank> options =
-                new FirebaseRecyclerOptions.Builder<Bank>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("banks").orderByChild("bankcity").startAt(searchtext).endAt(searchtext + "\uf8ff"), Bank.class)
+        FirebaseRecyclerOptions<Campaign> options =
+                new FirebaseRecyclerOptions.Builder<Campaign>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("campaigns").orderByChild("title").startAt(searchtext).endAt(searchtext + "\uf8ff"), Campaign.class)
                         .build();
-
-       adapterbank = new BankAdapter(options);
-        adapterbank.startListening();
-       recyclerView.setAdapter(adapterbank);
-
+        adapter = new CampainAdapter(options);
+        adapter.startListening();
+        camRecyclerView.setAdapter(adapter);
 
     }
 
@@ -149,8 +138,7 @@ public class BloodBankActivity extends AppCompatActivity {
 
         }
 
-        }
-
+    }
 
 
 

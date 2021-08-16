@@ -320,6 +320,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
             case R.id.a_negative:
                 Intent intent1 = new Intent(MainActivity.this,CatagorySelectedActivity.class);
                 intent1.putExtra("group","A-");
@@ -383,108 +384,40 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu2) {
-        getMenuInflater().inflate(R.menu.manu2,menu2);
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.manu2, menu);
 
 
-        MenuItem item =menu2.findItem(R.id.serch_manu2);
 
-        SearchView searchView = (SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-
-                process_search(query);
-
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-
-                process_search(query);
-
-                return false;
-            }
-        });
-
-
-        return super.onCreateOptionsMenu(menu2);
-
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case
-                R.id.about2:
-                Toast.makeText(this, "about", Toast.LENGTH_SHORT).show();
-                break;
 
-            case
-                R.id.share2:
-                Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
-
-                break;
-
-            case
-                    R.id.serch_manu2:
+        switch (item.getItemId()) {
 
 
 
-                         break;
 
+
+
+
+            case android.R.id.home:
+                finish();
+                return true;
 
             default:
-                break;
+                return super.onOptionsItemSelected(item);
+
 
         }
 
 
-        return true;
-    }
-
-
-    private void process_search(String query) {
-
-
-
-
-        userList = new ArrayList<>();
-        userAdapter = new UserAdapter(MainActivity.this,userList);
-        recyclerView.setAdapter(userAdapter);
-
-
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-
-        String searchtext = query.toLowerCase();
-        FirebaseRecyclerOptions<AmbulanceModel> options =
-                new FirebaseRecyclerOptions.Builder<AmbulanceModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("ambulances").orderByChild("location").startAt(searchtext).endAt(searchtext + "\uf8ff"), AmbulanceModel.class)
-                        .build();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
-
 
     @Override
     public void onBackPressed() {

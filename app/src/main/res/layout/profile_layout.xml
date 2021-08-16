@@ -138,18 +138,18 @@
                 android:layout_marginEnd="30dp"
                 android:clickable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/emailNowRecy"
+                app:layout_constraintEnd_toStartOf="@+id/shareNowRecy"
                 app:srcCompat="@drawable/call" />
 
             <ImageView
-                android:id="@+id/emailNowRecy"
+                android:id="@+id/shareNowRecy"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/callNowRecy"
-                app:srcCompat="@drawable/emailnow" />
+                app:srcCompat="@drawable/share" />
 
             <TextView
                 android:id="@+id/textView16"
