@@ -7,9 +7,9 @@
     android:icon="@drawable/ic_home"
     android:title="Home"/>
     <item
-        android:id="@+id/emailme"
+        android:id="@+id/alluser"
         android:icon="@drawable/ic_person"
-        android:title="@string/noverify"/>
+        android:title="@string/activeusers"/>
 
     <item
         android:id="@+id/deshboard"

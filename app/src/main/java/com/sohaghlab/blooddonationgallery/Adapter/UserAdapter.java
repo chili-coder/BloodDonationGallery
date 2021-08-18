@@ -91,11 +91,10 @@ private List<User>userList;
 
 
 
-
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Assalaamualaikum wa rahmatullaah"+"."+ "Myself" +NamE +"." + "I am from "+ciTy+"."
-               + " My blood group " + bloogGroup +"."+" I am a "+tyPe +" My BDG status " +status +"\nPlease contract  \n"+PhonE+" Allah bless you" );
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Assalaamualaikum wa rahmatullaah "+"."+ " Myself " +NamE +"." + " I am from "+ciTy+"."
+               + " My blood group " + bloogGroup +"."+" I am a "+tyPe +" My BDG status is " +status +"\nPlease contract  \n"+PhonE+" Allah bless you" );
                 sendIntent.setType("text/plain");
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 context.startActivity(shareIntent);

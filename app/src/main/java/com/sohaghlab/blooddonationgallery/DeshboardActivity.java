@@ -1,10 +1,12 @@
 package com.sohaghlab.blooddonationgallery;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -196,10 +198,34 @@ public class DeshboardActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent logout = new Intent(DeshboardActivity.this,LoginActivity.class);
-                startActivity(logout);
-                mFirebaseAuth.signOut();
-                finish();
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(DeshboardActivity.this);
+                builder.setTitle(R.string.app_name);
+                builder.setIcon(R.drawable.bdgicon);
+                builder.setMessage("Do you want to logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent logout = new Intent(DeshboardActivity.this,LoginActivity.class);
+                                startActivity(logout);
+                                mFirebaseAuth.signOut();
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
+
+
+
+
             }
         });
 

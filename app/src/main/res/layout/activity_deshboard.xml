@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bloodback"
     android:layout_height="match_parent"
     tools:context=".DeshboardActivity"
     >
@@ -11,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bloodback">
+      >
 
 
 
@@ -241,7 +242,7 @@
                     android:id="@+id/image_view1"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/activee"
+                    android:src="@drawable/campaign"
                     app:layout_constraintBottom_toTopOf="@+id/textView1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -254,7 +255,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="@string/active"
+                    android:text="@string/campaign"
                     android:textAllCaps="true"
                     android:textSize="14sp"
                     android:textStyle="bold"

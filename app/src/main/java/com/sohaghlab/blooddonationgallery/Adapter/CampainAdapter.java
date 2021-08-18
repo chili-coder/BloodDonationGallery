@@ -2,7 +2,9 @@ package com.sohaghlab.blooddonationgallery.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.installations.Utils;
 import com.sohaghlab.blooddonationgallery.CampainDeshActivity;
 import com.sohaghlab.blooddonationgallery.Model.Campaign;
 import com.sohaghlab.blooddonationgallery.R;
@@ -122,7 +125,10 @@ public class CampainAdapter extends FirebaseRecyclerAdapter<Campaign,CampainAdap
             @Override
             public void onClick(View v) {
 
-            
+
+
+
+
 
 
             }
@@ -153,6 +159,8 @@ public class CampainAdapter extends FirebaseRecyclerAdapter<Campaign,CampainAdap
         ConstraintLayout constraintLayout;
 
         DatabaseReference likereference;
+
+
 
         public myCampaignHolder(@NonNull View itemView) {
             super(itemView);

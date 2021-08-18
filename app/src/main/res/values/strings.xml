@@ -125,7 +125,7 @@
     <string name="backtoprofile">Back to Home</string>
     <string name="info">Blood Info</string>
     <string name="needdate">Need Date</string>
-    <string name="nearwithme">Near With Me</string>
+    <string name="nearwithme">My Type</string>
 
 
     ///email verification
@@ -194,6 +194,9 @@
     <string name="no">No</string>
 
     <string name="campaign">Campaign</string>
+    <string name="totalregister">Total User</string>D
+    <string name="alluser">All User</string>
+    <string name="activeusers">Active Users</string>
 
 
 </resources>
