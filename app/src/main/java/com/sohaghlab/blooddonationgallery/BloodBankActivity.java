@@ -120,7 +120,7 @@ public class BloodBankActivity extends AppCompatActivity {
 
     private void process_search(String querybank) {
 
-        String searchtext = querybank.toLowerCase();
+        String searchtext = querybank.toLowerCase().toUpperCase();
 
         FirebaseRecyclerOptions<Bank> options =
                 new FirebaseRecyclerOptions.Builder<Bank>()

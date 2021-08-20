@@ -108,7 +108,7 @@ public class AmbulanceActivity extends AppCompatActivity {
     }
 
     private void process_search(String query) {
-        String searchtext = query.toLowerCase();
+        String searchtext = query.toLowerCase().toUpperCase();
         FirebaseRecyclerOptions<AmbulanceModel> options =
                 new FirebaseRecyclerOptions.Builder<AmbulanceModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("ambulances").orderByChild("location").startAt(searchtext).endAt(searchtext + "\uf8ff"), AmbulanceModel.class)

@@ -163,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/poppins"
-                android:text="No verification email address"
+                android:textColor="@color/purple_700"
+                android:text="@string/noemaiverified"
                 app:layout_constraintBottom_toTopOf="@+id/bloodDesh"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailDesh" />
@@ -172,8 +173,9 @@
                 android:id="@+id/emailVerifid_Desh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@+id/bloodDesh"
-                app:layout_constraintTop_toBottomOf="@+id/emailDesh"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@+id/typeDesh"
+                app:layout_constraintTop_toTopOf="@+id/typeDesh"
                 app:srcCompat="@drawable/ic_verified" />
 
             <TextView

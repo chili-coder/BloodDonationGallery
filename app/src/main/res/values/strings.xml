@@ -131,9 +131,10 @@
     ///email verification
     <string name="noverify">No Verify </string>
     <string name="Clicktoverifyemail">Click to Verify Email</string>
-    <string name="noverifyemail">No Email Verification <b />
-        Click to Verification</string>
+    <string name="noverifyemail">
+        Click to Email Verification</string>
     <string name="verified">Verified</string>
+    <string name="noemaiverified">No verified email address</string>
 
     <string name="forgot">Forgot Password</string>
     <string name="sendemail">Send To Email </string>
@@ -197,6 +198,8 @@
     <string name="totalregister">Total User</string>D
     <string name="alluser">All User</string>
     <string name="activeusers">Active Users</string>
+
+    <string name="search_city">Search City</string>
 
 
 </resources>
