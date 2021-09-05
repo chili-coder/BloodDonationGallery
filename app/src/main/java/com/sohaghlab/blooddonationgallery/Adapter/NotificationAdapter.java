@@ -1,5 +1,6 @@
 package com.sohaghlab.blooddonationgallery.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,16 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.sohaghlab.blooddonationgallery.Model.NotificationModel;
+import com.sohaghlab.blooddonationgallery.Model.User;
 import com.sohaghlab.blooddonationgallery.R;
 
+import java.util.List;
+
 public class NotificationAdapter extends FirebaseRecyclerAdapter<NotificationModel,NotificationAdapter.notiViewHolder> {
+
+    private List<NotificationModel> userList;
+
+
 
     public NotificationAdapter(@NonNull FirebaseRecyclerOptions<NotificationModel> options) {
         super(options);
@@ -27,7 +35,11 @@ public class NotificationAdapter extends FirebaseRecyclerAdapter<NotificationMod
         holder.title_noti.setText(model.getTitle());
         holder.des_noti.setText(model.getDes());
         holder.date_noti.setText(model.getDate());
-        Glide.with(holder.img_noti.getContext()).load(model.getImg()).into(holder.img_noti);
+        Glide.with(holder.img_noti.getContext()).load(model.getImg()).error(R.drawable.noti).into(holder.img_noti);
+
+
+
+
     }
 
     @NonNull

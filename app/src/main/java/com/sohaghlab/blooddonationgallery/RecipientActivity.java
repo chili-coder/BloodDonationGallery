@@ -169,17 +169,13 @@ public class RecipientActivity extends AppCompatActivity {
                     signUpPhone.setError("Phone is required!");
                     return;
                 }
-                if (TextUtils.isEmpty(city)){
+                if (TextUtils.isEmpty(age)){
                     signUpAge.setError("Age is required!");
                     return;
                 }
 
                 if (TextUtils.isEmpty(city)){
                     signUpCity.setError("City is required!");
-                    return;
-                }
-                if (TextUtils.isEmpty(userId)){
-                    signUpId.setError("UserId is required!");
                     return;
                 }
 

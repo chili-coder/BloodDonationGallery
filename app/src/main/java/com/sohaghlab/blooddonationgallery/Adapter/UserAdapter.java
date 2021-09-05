@@ -69,6 +69,7 @@ private List<User>userList;
         holder.phoneRecy.setText(user.getPhone());
         holder.bloodRecy.setText(user.getBloodgroup());
         holder.cityRecy.setText(user.getCity());
+        holder.ageRecy.setText(user.getAge());
         holder.lastDonationRecy.setText(user.getLastdonation());
         holder.statusRecy.setText(user.getStatus());
         holder.dateTitleRecy.setText(user.getDatetitle());

@@ -26,12 +26,12 @@
             <ImageView
                 android:id="@+id/img_nt"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bdgicon" />
+                app:srcCompat="@drawable/noti" />
 
             <ImageView
                 android:id="@+id/imageView8"
@@ -48,7 +48,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:fontFamily="@font/poppins"
-                android:text="03:11 am 09/08/2021"
+                android:text=""
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img_nt" />
 
@@ -61,7 +61,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="TextView jhgasjh jgasjhg sjgjhs jasgjhs ashgjh ajhsvjhs ajsvjhs ahsvjhs ashvsgh "
+                android:text="title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
                 app:layout_constraintTop_toBottomOf="@+id/date_nt" />
@@ -74,7 +74,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/poppins"
-                android:text="TextView ugeud jwaegwhe ajwgedhjwe wjhehdghw whhgjhw wjhheghjwe jawehghjw waehgehj awevgewh"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
