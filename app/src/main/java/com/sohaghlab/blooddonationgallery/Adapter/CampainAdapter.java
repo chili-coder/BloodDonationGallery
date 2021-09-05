@@ -66,18 +66,12 @@ public class CampainAdapter extends FirebaseRecyclerAdapter<Campaign,CampainAdap
         Glide.with(holder.camImage.getContext()).load(model.getImg()).into(holder.camImage);
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        String userid=firebaseUser.getUid();
-        String postkey= getRef(position).getKey();
+      final   String userid=firebaseUser.getUid();
+       final String postkey= getRef(position).getKey();
 
         holder.getlikebuttonstatus(postkey,userid);
 
         likereference=FirebaseDatabase.getInstance().getReference("likes");
-
-
-
-
-
-
 
 
         holder.camFavorite.setOnClickListener(new View.OnClickListener() {
@@ -91,9 +85,8 @@ public class CampainAdapter extends FirebaseRecyclerAdapter<Campaign,CampainAdap
                       if (testclick==true){
                           if (snapshot.child(postkey).hasChild(userid)){
 
-                              likereference.child(postkey).removeValue();
-                              testclick=false;
-
+                            //  likereference.child(postkey).removeValue();
+                             // testclick=false;
 
                           }else {
 
@@ -101,6 +94,10 @@ public class CampainAdapter extends FirebaseRecyclerAdapter<Campaign,CampainAdap
                               testclick=false;
 
                           }
+
+                      } else {
+
+
 
                       }
                     }
@@ -113,13 +110,10 @@ public class CampainAdapter extends FirebaseRecyclerAdapter<Campaign,CampainAdap
 
 
 
-
-
-
-
-
             }
         });
+
+
 
         holder.camShare.setOnClickListener(new View.OnClickListener() {
             @Override

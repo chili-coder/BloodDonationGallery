@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Blood_Donation_Gallery.iml" filepath="$PROJECT_DIR$/.idea/modules/Blood_Donation_Gallery.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Blood_Donation_Gallery.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Blood_Donation_Gallery.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nativetemplates/Blood_Donation_Gallery.nativetemplates.iml" filepath="$PROJECT_DIR$/.idea/modules/nativetemplates/Blood_Donation_Gallery.nativetemplates.iml" />
     </modules>
   </component>
 </project>

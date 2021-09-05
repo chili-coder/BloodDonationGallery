@@ -18,10 +18,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.ApplicationInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,6 +83,10 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mFirebaseAuth;
 
     private TextView donateTextFix;
+    private Dialog mdialog;
+
+    AppUpdateManager appUpdateManager;
+    int RequstUpdate=1;
 
     ///app_update
     private AppUpdateManager mAppUpdateManager;
@@ -113,6 +120,42 @@ public class MainActivity extends AppCompatActivity
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        mdialog= new Dialog(this);
+
+        /////
+
+        //////////
+
+
+
+        //appupdate start
+
+        appUpdateManager= AppUpdateManagerFactory.create(this);
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+
+                if ((result.updateAvailability()== UpdateAvailability.UPDATE_AVAILABLE)
+                    && result.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)){
+
+                    try {
+                        appUpdateManager.startUpdateFlowForResult(
+                                result,AppUpdateType.IMMEDIATE,
+                                MainActivity.this,
+                                RequstUpdate
+                        );
+                    } catch (IntentSender.SendIntentException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
+
+
+
+            }
+        });
 
 
 
@@ -248,8 +291,36 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    ///appupdate
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+
+                if (result.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+                    try {
+                        appUpdateManager.startUpdateFlowForResult(
+                                result,
+                                AppUpdateType.IMMEDIATE,
+                                MainActivity.this,
+                                RequstUpdate);
+                    } catch (IntentSender.SendIntentException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        });
 
 
+    }
+
+    //end app update
 
     private void readRecipients() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
@@ -379,12 +450,23 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent7);
                 break;
 
+            case R.id.feedback:
 
-            case R.id.logout:
-                Intent logout = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(logout);
-                mFirebaseAuth.signOut();
-                finish();
+                Intent mailIntent = new Intent(Intent.ACTION_VIEW);
+                Uri data = Uri.parse("mailto:?subject=" + "Subject Here"+ "&body=" + "Your Massage Body" + "&to=" + "sohaghlab@gmail.com");
+                mailIntent.setData(data);
+                startActivity(Intent.createChooser(mailIntent, "Send mail..."));
+
+                break;
+
+
+            case R.id.version:
+
+                mdialog.setContentView(R.layout.version_popup);
+                mdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                mdialog.show();
+
+
                 break;
             default:
                 break;
@@ -444,17 +526,29 @@ public class MainActivity extends AppCompatActivity
 
                 break;
 
+
+
             case R.id.about2:
 
-                Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+                Intent about = new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(about);
+
 
                 break;
 
-            case R.id.setting2:
+            case R.id.notification:
 
-                Toast.makeText(MainActivity.this, "Setting", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,NotificationActivity.class);
+                startActivity(intent);
+
+
 
                 break;
+
+            case  R.id.privacy_policy:
+
+               Intent chromeIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://sites.google.com/diu.edu.bd/blooddonationgallery/"));
+               startActivity(chromeIntent);
 
 
 
@@ -479,6 +573,10 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
+
+
 
 
 

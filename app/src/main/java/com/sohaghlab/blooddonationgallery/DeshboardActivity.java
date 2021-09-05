@@ -9,12 +9,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.ContentValues.TAG;
 
 public class DeshboardActivity extends AppCompatActivity {
 
@@ -35,6 +43,8 @@ public class DeshboardActivity extends AppCompatActivity {
     TextView nameDesh,emailDesh,statusDesh,noverified,bloodgroupDesh,typeDesh;
     CircleImageView imageDesh;
     ImageView verifid;
+
+    private InterstitialAd mInterstitialAd;
 
 
 
@@ -79,6 +89,9 @@ public class DeshboardActivity extends AppCompatActivity {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(
                 FirebaseAuth.getInstance().getCurrentUser().getUid()
         );
+        setAds();
+
+
 
 
 
@@ -139,11 +152,19 @@ public class DeshboardActivity extends AppCompatActivity {
         });
 
 
+///////ads in
+
+
+        ///add out
+
+
 
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Intent intent = new Intent(DeshboardActivity.this,ProfileActivity.class);
                 startActivity(intent);
             }
@@ -174,8 +195,10 @@ public class DeshboardActivity extends AppCompatActivity {
         ambulance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DeshboardActivity.this,AmbulanceActivity.class);
-                startActivity(intent);
+
+                    Intent intent = new Intent(DeshboardActivity.this,AmbulanceActivity.class);
+                    startActivity(intent);
+
             }
         });
 
@@ -210,7 +233,11 @@ public class DeshboardActivity extends AppCompatActivity {
                                 Intent logout = new Intent(DeshboardActivity.this,LoginActivity.class);
                                 startActivity(logout);
                                 mFirebaseAuth.signOut();
+
+
                                 finish();
+
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -220,6 +247,7 @@ public class DeshboardActivity extends AppCompatActivity {
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
+
 
 
 
@@ -240,6 +268,45 @@ public class DeshboardActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+    }
+
+    private void setAds() {
+
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,getString(R.string.admob_ins_ad_id), adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        mInterstitialAd = null;
+                    }
+                });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (mInterstitialAd!=null){
+            mInterstitialAd.show(this);
+        }
+
+            super.onBackPressed();
 
     }
 }

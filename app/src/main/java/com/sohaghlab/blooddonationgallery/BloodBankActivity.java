@@ -7,15 +7,22 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +42,7 @@ public class BloodBankActivity extends AppCompatActivity {
     BankAdapter adapterbank;
     public Toolbar toolbar;
     private ProgressBar progressBank;
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -62,6 +70,37 @@ public class BloodBankActivity extends AppCompatActivity {
 
         adapterbank = new BankAdapter(options);
         recyclerView.setAdapter(adapterbank);
+
+
+        ///no internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+
+        if (networkInfo == null || !networkInfo.isConnected() || !networkInfo.isAvailable()) {
+
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.no_internet_item);
+            dialog.setCancelable(false);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().getAttributes().windowAnimations =
+                    android.R.style.Animation_Dialog;
+
+            Button retry = dialog.findViewById(R.id.retry);
+
+            retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recreate();
+                }
+            });
+            dialog.show();
+
+        } else {
+
+        } //end retry
+
 
 
     }
@@ -120,7 +159,7 @@ public class BloodBankActivity extends AppCompatActivity {
 
     private void process_search(String querybank) {
 
-        String searchtext = querybank.toLowerCase().toUpperCase();
+        String searchtext = querybank.toLowerCase();
 
         FirebaseRecyclerOptions<Bank> options =
                 new FirebaseRecyclerOptions.Builder<Bank>()

@@ -18,6 +18,7 @@
         android:background="@color/purple_700"/>
 
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,19 +36,13 @@
        >
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            app:cardElevation="10dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="10dp">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cardback"
+
                 android:orientation="vertical">
 
 
@@ -56,6 +51,13 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
 
 
                     <TextView
@@ -137,244 +139,425 @@
                          />
 
                     <View
-                        android:layout_width="150dp"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="15dp"
                         android:background="@color/purple_700" />
+
+                    </LinearLayout>
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="20dp">
+                        android:background="@color/white">
 
+                        <ImageView
+                            android:id="@+id/imgp1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/text1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/namep"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/name"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp1"
+                            app:layout_constraintTop_toTopOf="@+id/imgp1" />
 
                         <TextView
                             android:id="@+id/namePro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
-                            android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@+id/textView"
-                            app:layout_constraintTop_toTopOf="@+id/textView" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/name"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/text1"
+                            app:layout_constraintStart_toEndOf="@+id/imgp1"
+                            app:layout_constraintTop_toBottomOf="@+id/text1" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/emailDesh"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/textView2"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/phonep"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/phone1"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp2"
+                            app:layout_constraintTop_toTopOf="@+id/imgp2" />
 
                         <TextView
                             android:id="@+id/phonePro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
-                            android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@+id/emailDesh"
-                            app:layout_constraintTop_toTopOf="@+id/emailDesh" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/phone1"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/textView2"
+                            app:layout_constraintStart_toEndOf="@+id/imgp2"
+                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/useridp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/emailDesh" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/useIdPro"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/text15"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
+                            android:layout_marginStart="10dp"
+                            android:text="@string/email"
                             android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@+id/textView5"
-                            app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/emailp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp3"
+                            app:layout_constraintTop_toTopOf="@+id/imgp3" />
 
                         <TextView
                             android:id="@+id/emailPro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
-                            android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@+id/textView7"
-                            app:layout_constraintTop_toTopOf="@+id/textView7" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/email"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/text15"
+                            app:layout_constraintStart_toEndOf="@+id/imgp3"
+                            app:layout_constraintTop_toBottomOf="@+id/text15" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp4"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/text5"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/bloodgroupp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/bloodgroup"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp4"
+                            app:layout_constraintTop_toTopOf="@+id/imgp4" />
 
                         <TextView
                             android:id="@+id/bloodPro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
+                            android:layout_marginStart="10dp"
+                            android:text="@string/bloodgroup"
                             android:textColor="@color/purple_700"
-                            app:layout_constraintStart_toEndOf="@+id/textView9"
-                            app:layout_constraintTop_toTopOf="@+id/textView9" />
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/text5"
+                            app:layout_constraintStart_toEndOf="@+id/imgp4"
+                            app:layout_constraintTop_toBottomOf="@+id/text5" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp5"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/textView11"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/text7"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/cityp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/nameDesh" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/city"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp5"
+                            app:layout_constraintTop_toTopOf="@+id/imgp5" />
 
                         <TextView
                             android:id="@+id/cityPro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
-                            android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@+id/textView11"
-                            app:layout_constraintTop_toTopOf="@+id/textView11" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/city"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/text7"
+                            app:layout_constraintStart_toEndOf="@+id/imgp5"
+                            app:layout_constraintTop_toBottomOf="@+id/text7" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
 
+                        <ImageView
+                            android:id="@+id/imgp7"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/nameDesh"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/text16"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/agep"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/age"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp7"
+                            app:layout_constraintTop_toTopOf="@+id/imgp7" />
 
                         <TextView
                             android:id="@+id/agePro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:fontFamily="@font/poppins"
-                            android:text=""
-                            android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@+id/nameDesh"
-                            app:layout_constraintTop_toTopOf="@+id/nameDesh" />
+                            android:layout_marginStart="10dp"
+                            android:text="@string/age"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/text16"
+                            app:layout_constraintStart_toEndOf="@+id/imgp7"
+                            app:layout_constraintTop_toBottomOf="@+id/text16" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp8"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
 
                         <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/text11"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/nid"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp8"
+                            app:layout_constraintTop_toTopOf="@+id/imgp8" />
 
-                            android:text="@string/donatep"
-                            app:layout_constraintStart_toStartOf="@+id/textView11"
-                            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                        <TextView
+                            android:id="@+id/useIdPro"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/nid"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/text11"
+                            app:layout_constraintStart_toEndOf="@+id/imgp8"
+                            app:layout_constraintTop_toBottomOf="@+id/text11" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp9"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
+
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/status"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp9"
+                            app:layout_constraintTop_toTopOf="@+id/imgp9" />
 
                         <TextView
                             android:id="@+id/donatePro"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:background="@color/green"
-                            android:fontFamily="@font/poppins"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:text="TextView"
-                            android:textColor="@color/white"
-                            app:layout_constraintStart_toEndOf="@+id/textView6"
-                            app:layout_constraintTop_toTopOf="@+id/textView6" />
-
-                        <LinearLayout
-                            android:id="@+id/BloodDonationDateLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:background="@color/purple_700"
-                            android:gravity="center"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView6"
-                            tools:ignore="MissingConstraints">
-
-                            <TextView
-                                android:id="@+id/setDateTitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:fontFamily="@font/poppins"
-                                android:padding="5dp"
-                                android:text="@string/lastdatedonation"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:id="@+id/lastDonationDatePro"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:fontFamily="@font/poppins"
-                                android:padding="5dp"
-                                android:text="None"
-
-                                android:textColor="@color/white" />
-
-                        </LinearLayout>
-
+                            android:layout_marginStart="10dp"
+                            android:text="@string/status"
+                            android:textSize="15dp"
+                            android:textColor="@color/green"
+                            app:layout_constraintEnd_toEndOf="@+id/text3"
+                            app:layout_constraintStart_toEndOf="@+id/imgp9"
+                            app:layout_constraintTop_toBottomOf="@+id/text3" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:id="@+id/blooddonationdateupadte"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imgp11"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bdgicon" />
+
+                        <TextView
+                            android:id="@+id/setDateTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/lastdatedonation"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgp11"
+                            app:layout_constraintTop_toTopOf="@+id/imgp11" />
+
+                        <TextView
+                            android:id="@+id/lastDonationDatePro"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/none"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="@+id/setDateTitle"
+                            app:layout_constraintStart_toEndOf="@+id/imgp11"
+                            app:layout_constraintTop_toBottomOf="@+id/setDateTitle" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 
 
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
     </ScrollView>
 

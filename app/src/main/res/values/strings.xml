@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Blood Donation Gallery</string>
 
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_ins_ad_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_banner_ad_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native_ad_id">ca-app-pub-3940256099942544/2247696110</string>
+
+
     <string name="wc">Welcome Our SignUp Page</string>
     <string name="choiceone">Please Choose One?</string>
     <string name="become_a_donner">Be Come A Donner</string>
@@ -20,9 +26,13 @@
     <string name="navigation_draw_open">Open navigation drawer</string>
     <string name="navigation_draw_close">Open navigation close</string>
 
+    ///notification
+    <string name="notification">Notification</string>
+
+
     ///signup
     <string name="name">Name</string>
-    <string name="phone">Phone</string>
+    <string name="phone">Phone (01XXXXXXXXX)</string>
     <string name="gender">Gender</string>
     <string name="bloodgroup">Blood Group</string>
     <string name="city">City</string>
@@ -33,6 +43,11 @@
     <string name="donner_regi_btn">Register</string>
     <string name="blood">Blood</string>
     <string name="accounttype">Account</string>
+
+    <string name="none">None</string>
+    <string name="status">Status</string>
+    <string name="phone1">Phone</string>
+    <string name="nid">NID No</string>
     ///login
     <string name="forgotpassword">Forgot Password?</string>
 
@@ -97,6 +112,7 @@
     <string name="setting">Settings</string>
 
     <string name="feedback">Feedback</string>
+    <string name="admincontract">Admin Contract</string>
     <string name="rate">Rate App</string>
     <string name="namep">Name: </string>
     <string name="phonep">Phone: </string>
@@ -114,7 +130,9 @@
     <string name="active">Active</string>
     <string name="inactive">Inactive</string>
     <string name="needp">Need: </string>
-    <string name="donatep">Donated: </string>
+    <string name="donatep">Status: </string>
+    <string name="version">Version</string>
+    <string name="versioncode">1.0.1</string>
 
 
     //updateprofile

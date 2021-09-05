@@ -75,15 +75,15 @@
             <group android:checkableBehavior="single">
 
                 <item
-                    android:id="@+id/changelanguage"
-                    android:icon="@drawable/ic_language"
-                    android:title="@string/english"/>
+                    android:id="@+id/feedback"
+                    android:icon="@drawable/ic_feedback"
+                    android:title="@string/admincontract"/>
 
 
                 <item
-                    android:id="@+id/logout"
-                    android:icon="@drawable/ic_logout"
-                    android:title="@string/logout"/>
+                    android:id="@+id/version"
+                    android:icon="@drawable/ic_version"
+                    android:title="@string/version"/>
 
             </group>
         </menu>

@@ -5,13 +5,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,6 +25,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,6 +52,8 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.content.ContentValues.TAG;
+
 public class UserDataUpdateActivity extends AppCompatActivity {
 
    private CircleImageView updateImage;
@@ -54,6 +65,8 @@ public class UserDataUpdateActivity extends AppCompatActivity {
     private DatabaseReference userDataRef;
     private TextView backtoprofile;
     private Spinner status_spnner;
+
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -93,6 +106,7 @@ public class UserDataUpdateActivity extends AppCompatActivity {
         lastDoneteUpdate.setText(_lastdonete);
 
         */
+        setAds();
 
 
 
@@ -115,6 +129,39 @@ public class UserDataUpdateActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        ///no internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+
+        if (networkInfo == null || !networkInfo.isConnected() || !networkInfo.isAvailable()) {
+
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.no_internet_item);
+            dialog.setCancelable(false);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().getAttributes().windowAnimations =
+                    android.R.style.Animation_Dialog;
+
+            Button retry = dialog.findViewById(R.id.retry);
+
+            retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recreate();
+                }
+            });
+            dialog.show();
+
+        } else {
+
+        } //end retry
+
+
 
 
 
@@ -204,6 +251,14 @@ public class UserDataUpdateActivity extends AppCompatActivity {
                               public void onComplete(@NonNull Task task) {
 
                                   if (task.isSuccessful()){
+
+                                      if (mInterstitialAd!=null){
+                                          mInterstitialAd.show(UserDataUpdateActivity.this);
+                                      }
+
+
+
+
 
 
                                   }else {
@@ -321,6 +376,34 @@ public class UserDataUpdateActivity extends AppCompatActivity {
 
 
     }
+
+    private void setAds() {
+
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,getString(R.string.admob_ins_ad_id), adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        mInterstitialAd = null;
+                    }
+                });
+
+
+    }
+
+
 
 
 

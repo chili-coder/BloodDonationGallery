@@ -8,12 +8,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +38,8 @@ import com.sohaghlab.blooddonationgallery.Model.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 public class CatagorySelectedActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -37,6 +50,8 @@ public class CatagorySelectedActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private String title ="";
     private String text="Active";
+
+    private InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +94,59 @@ public class CatagorySelectedActivity extends AppCompatActivity {
         }
 
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,getString(R.string.admob_ins_ad_id), adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        mInterstitialAd = null;
+                    }
+                });
+
+        ///add out
+
+
+
+
+        ///no internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+
+        if (networkInfo == null || !networkInfo.isConnected() || !networkInfo.isAvailable()) {
+
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.no_internet_item);
+            dialog.setCancelable(false);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().getAttributes().windowAnimations =
+                    android.R.style.Animation_Dialog;
+
+            Button retry = dialog.findViewById(R.id.retry);
+
+            retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recreate();
+                }
+            });
+            dialog.show();
+
+        } else {
+
+        } //end retry
 
 
 
@@ -253,5 +321,16 @@ public class CatagorySelectedActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (mInterstitialAd!=null){
+            mInterstitialAd.show(this);
+        }
+
+
+        super.onBackPressed();
     }
 }

@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,12 +33,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.content.ContentValues.TAG;
+
 public class ProfileActivity extends AppCompatActivity {
 
     CircleImageView profileImage;
     TextView accountType, editProfile, namePro,phonePro,emailPro,userIdPro,cityPro,bloodGroupPro, agePro;
 
-    LinearLayout updateDonationDate;
+    ConstraintLayout updateDonationDate;
     private  FirebaseAuth mFirebaseAuth;
 
     LinearLayout dateDonteLayout;
@@ -41,6 +49,8 @@ public class ProfileActivity extends AppCompatActivity {
     TextView lastBloodDonation,clickToUpdateDate;
     TextView status;
     TextView setdatetitle;
+
+
 
 
 
@@ -70,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
 
-        updateDonationDate = findViewById(R.id.BloodDonationDateLayout);
+      //  updateDonationDate = findViewById(R.id.blooddonationdateupadte);
 
 
         profileImage=findViewById(R.id.image_profile);
@@ -88,7 +98,13 @@ public class ProfileActivity extends AppCompatActivity {
         status=findViewById(R.id.donatePro);
         setdatetitle=findViewById(R.id.setDateTitle);
 
-        dateDonteLayout=findViewById(R.id.BloodDonationDateLayout);
+       // dateDonteLayout=findViewById(R.id.blooddonationdateupadte);
+
+
+        //ads in
+
+
+        ///add out
 
 
 
@@ -331,12 +347,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
 
 
 }

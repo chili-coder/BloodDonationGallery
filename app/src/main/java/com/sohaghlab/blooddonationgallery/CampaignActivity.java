@@ -6,14 +6,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sohaghlab.blooddonationgallery.Adapter.AmbulanceAdapter;
 import com.sohaghlab.blooddonationgallery.Adapter.BankAdapter;
@@ -28,6 +35,7 @@ public class CampaignActivity extends AppCompatActivity {
     ProgressBar progressBar;
     public Toolbar toolbar;
     CampainAdapter adapter;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +64,37 @@ public class CampaignActivity extends AppCompatActivity {
 
         adapter = new CampainAdapter(options);
         camRecyclerView.setAdapter(adapter);
+
+
+        ///no internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+
+        if (networkInfo == null || !networkInfo.isConnected() || !networkInfo.isAvailable()) {
+
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.no_internet_item);
+            dialog.setCancelable(false);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().getAttributes().windowAnimations =
+                    android.R.style.Animation_Dialog;
+
+            Button retry = dialog.findViewById(R.id.retry);
+
+            retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recreate();
+                }
+            });
+            dialog.show();
+
+        } else {
+
+        } //end retry
+
 
 
 

@@ -3,6 +3,7 @@ package com.sohaghlab.blooddonationgallery.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.ads.nativetemplates.NativeTemplateStyle;
+import com.google.android.ads.nativetemplates.TemplateView;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.gms.ads.nativead.NativeAd;
 import com.sohaghlab.blooddonationgallery.Model.User;
 import com.sohaghlab.blooddonationgallery.R;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.ContentValues.TAG;
 
 public class UserAdapter extends  RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
@@ -59,8 +72,15 @@ private List<User>userList;
         holder.lastDonationRecy.setText(user.getLastdonation());
         holder.statusRecy.setText(user.getStatus());
         holder.dateTitleRecy.setText(user.getDatetitle());
+        Glide.with(context).load(user.getProfileimageurl()).error(R.drawable.user).into(holder.profileImageRecy);
 
-        Glide.with(context).load(user.getProfileimageurl()).into(holder.profileImageRecy);
+        ////
+
+
+
+
+
+        /////
 
         holder.callNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +99,12 @@ private List<User>userList;
             }
         });
 
+
+
+
+
+        ///add out
+
         holder.shareNowRecy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,12 +115,12 @@ private List<User>userList;
                 String ciTy=user.getCity();
                 String tyPe=user.getType();
 
-
+                String playlink="https://play.google.com/store/apps/details?id=com.sohaghlab.blooddonationgallery";
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "Assalaamualaikum wa rahmatullaah "+"."+ " Myself " +NamE +"." + " I am from "+ciTy+"."
-               + " My blood group " + bloogGroup +"."+" I am a "+tyPe +" My BDG status is " +status +"\nPlease contract  \n"+PhonE+" Allah bless you" );
+               + " My blood group " + bloogGroup +"."+" I am a "+tyPe +" My BDG status is " +status +"\nPlease contract  \n"+PhonE+"."+" Allah bless you"+"."+ "\n\nApplication Download Link: \n"+playlink );
                 sendIntent.setType("text/plain");
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 context.startActivity(shareIntent);
@@ -102,8 +128,21 @@ private List<User>userList;
 
 
 
+
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -121,6 +160,14 @@ private List<User>userList;
         TextView nameRecy,phoneRecy,cityRecy,ageRecy,lastDonationRecy,bloodRecy,typeRecy;
         ImageView callNow,shareNowRecy;
         TextView statusRecy,dateTitleRecy;
+
+        TemplateView template;
+        private InterstitialAd mInterstitialAd;
+
+
+
+
+
 
 
 
@@ -140,6 +187,15 @@ private List<User>userList;
 
             callNow=itemView.findViewById(R.id.callNowRecy);
             shareNowRecy=itemView.findViewById(R.id.shareNowRecy);
+
+
+            MobileAds.initialize(context);
+
+
+
+
+
+
         }
     }
 }

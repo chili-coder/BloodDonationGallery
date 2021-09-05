@@ -5,14 +5,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -72,7 +78,51 @@ public class RecipientActivity extends AppCompatActivity {
         loaderDiaglog=new ProgressDialog(this);
 
 
+        int phoneLength = 11;
+        InputFilter[] filters = new InputFilter[1];
+        filters[0] = new InputFilter.LengthFilter(phoneLength);
+        signUpPhone.setFilters(filters);
+
+
+        int ageLength = 3;
+        InputFilter[] agefilters = new InputFilter[1];
+        agefilters[0] = new InputFilter.LengthFilter(ageLength);
+        signUpAge.setFilters(agefilters);
+
+
         mAuth=FirebaseAuth.getInstance();
+
+
+        ///no internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+
+        if (networkInfo == null || !networkInfo.isConnected() || !networkInfo.isAvailable()) {
+
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.no_internet_item);
+            dialog.setCancelable(false);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().getAttributes().windowAnimations =
+                    android.R.style.Animation_Dialog;
+
+            Button retry = dialog.findViewById(R.id.retry);
+
+            retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recreate();
+                }
+            });
+            dialog.show();
+
+        } else {
+
+        } //end retry
+
+
 
 
         signUpImageDonner.setOnClickListener(new View.OnClickListener() {

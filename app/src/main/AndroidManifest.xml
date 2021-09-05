@@ -15,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodDonationGallery">
-        <activity android:name=".AllUserActivity"></activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".NotificationActivity" />
+        <activity
+            android:name=".AllUserActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".CampainDeshActivity" />
         <activity android:name=".CampaignActivity" />
         <activity android:name=".DeshboardActivity" />
@@ -43,6 +47,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
     </application>
 
 </manifest>
