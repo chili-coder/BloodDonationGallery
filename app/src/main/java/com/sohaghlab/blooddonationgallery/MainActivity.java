@@ -38,6 +38,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity
 
     private TextView donateTextFix;
     private Dialog mdialog;
+    private AdView mAdView;
 
     AppUpdateManager appUpdateManager;
     int RequstUpdate=1;

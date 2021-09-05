@@ -11,6 +11,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +38,7 @@ public class AllUserActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     public Toolbar toolbar;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,25 @@ public class AllUserActivity extends AppCompatActivity {
         userList = new ArrayList<>();
         userAdapter = new UserAdapter(AllUserActivity.this, userList);
         recyclerView.setAdapter(userAdapter);
+
+        ///banner ads start
+
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId(getString(R.string.admob_banner_ad_id));
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        /// banner ads end
+
 
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference()

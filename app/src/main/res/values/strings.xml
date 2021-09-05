@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Blood Donation Gallery</string>
 
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_ins_ad_id">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="admob_banner_ad_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admob_native_ad_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admob_app_id">ca-app-pub-1157089846902255~2119656871</string>
+    <string name="admob_ins_ad_id">ca-app-pub-1157089846902255/1327159739</string>
+    <string name="admob_banner_ad_id">ca-app-pub-1157089846902255/5457976433</string>
+
 
 
     <string name="wc">Welcome Our SignUp Page</string>

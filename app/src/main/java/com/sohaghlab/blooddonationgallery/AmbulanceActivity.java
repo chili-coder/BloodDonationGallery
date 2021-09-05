@@ -23,6 +23,12 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,6 +45,7 @@ public class AmbulanceActivity extends AppCompatActivity {
     public Toolbar toolbar;
     private InterstitialAd mInterstitialAd;
 
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,29 @@ public class AmbulanceActivity extends AppCompatActivity {
 
         recyclerview = findViewById(R.id.ambulanceRecycler);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
+
+        ///banner ads start
+
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId(getString(R.string.admob_banner_ad_id));
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        /// banner ads end
+
+
+
+
+
 
 
         FirebaseRecyclerOptions<AmbulanceModel> options =

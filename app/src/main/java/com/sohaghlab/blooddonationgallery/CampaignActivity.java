@@ -20,6 +20,12 @@ import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sohaghlab.blooddonationgallery.Adapter.AmbulanceAdapter;
@@ -36,6 +42,7 @@ public class CampaignActivity extends AppCompatActivity {
     public Toolbar toolbar;
     CampainAdapter adapter;
     private InterstitialAd mInterstitialAd;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,24 @@ public class CampaignActivity extends AppCompatActivity {
 
         adapter = new CampainAdapter(options);
         camRecyclerView.setAdapter(adapter);
+
+        ///banner ads start
+
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId(getString(R.string.admob_banner_ad_id));
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        /// banner ads end
 
 
         ///no internet
